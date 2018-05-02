@@ -1,6 +1,6 @@
 // Initialisierung von Sqlite3
 const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('shop.db', (error) => {
+let db = new sqlite3.Database('umrechner.db', (error) => {
 	if (error) {
 		console.log(error.message);
 	}
