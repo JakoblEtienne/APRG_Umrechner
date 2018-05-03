@@ -1,1 +1,2 @@
 02.05.2018: Server initialisiert / Body-Parser, ejs, express und sqlite3 installiert           Fabian Hensel       15 Min
+03.05.2018: Grundgerüste der ejs-Seiten Zeit, Temperatur und Längen erstellt                   Fabian Hensel       15 Min
