@@ -12,6 +12,7 @@ let db = new sqlite3.Database('umrechner.db', (error) => {
 // Initialisierung Express
 const express = require ('express');
 const app = express();
+app.use(express.static(__dirname + '/css'));
 
 // Initialisierung Body-Parser
 const bodyParser = require ('body-parser');
@@ -26,6 +27,23 @@ app.listen(port, function() {
 	console.log('listening to port ' + port);
 });
 
+//Seiten-Links
 app.get('/laengen', (req, res) => {
 	res.render('laengen')
 });
+app.get('/flaechen', (req, res) => {
+	res.render('flaechen')
+});
+app.get('/volumen', (req, res) => {
+	res.render('volumen')
+});
+app.get('/masse', (req, res) => {
+	res.render('masse')
+});
+app.get('/zeit', (req, res) => {
+	res.render('zeit')
+});
+app.get('/temperatur', (req, res) => {
+	res.render('temperatur')
+});
+
