@@ -40,11 +40,11 @@ section {
 }
 
 select {
-	font-size: 18px;
+	font-size: 22px;
 }
 
 input {
-	font-size: 18px;
+	font-size: 22px;
 }
 
 form {
@@ -65,29 +65,37 @@ form {
 .ergebnis {
 	border: 1px solid;
 	width: 180px;
-	font-size: 18px;
+	font-size: 22px;
 	display: inline-block;
-	height: 24px;
+	height: 29px;
 	font-family: Verdana;
 	vertical-align: top;
 }
 
 .buttonLänge {
 	float: left;
-	margin-left: 24%;
+	margin-left: 20.6%;
 	margin-top: 5px;
+	font-size: 18px;
 }
 
 .buttonTemp {
 	float: left;
-	margin-left: 25.55%;
+	margin-left: 22.5%;
 	margin-top: 5px;
+	font-size: 18px;
 }
 
 .buttonZeit {
 	float: left;
-	margin-left: 23.65%;
+	margin-left: 20.15%;
 	margin-top: 5px;
+	font-size: 18px;
+}
+
+.bild {
+	background-image: url("Zeit.jpg");
+	background-repeat: no-repeat;
 }
 
 
