@@ -72,9 +72,21 @@ form {
 	vertical-align: top;
 }
 
-button {
+.buttonLänge {
 	float: left;
 	margin-left: 24%;
+	margin-top: 5px;
+}
+
+.buttonTemp {
+	float: left;
+	margin-left: 25.55%;
+	margin-top: 5px;
+}
+
+.buttonZeit {
+	float: left;
+	margin-left: 23.65%;
 	margin-top: 5px;
 }
 

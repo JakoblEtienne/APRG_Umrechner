@@ -2,3 +2,4 @@
 03.05.2018: Grundgerüste der ejs-Seiten Zeit, Temperatur und Längen erstellt                   Fabian Hensel       15 Min
 08.05.2018: Alle Seiten in der server.js verlinkt (mit app.get) + Navigation-Prototyp + CSS    Jakob l'Etienne	   30 Min
 09.05.2018: Layout der Startseite                                                              Jakob l'Etienne, Fabian Hensel 2 Std
+09.05.2018: Layout von Temperatur, Zeit erstellt und Buttons angepasst                         Fabian Hensel       15 Min
