@@ -93,10 +93,24 @@ form {
 	font-size: 18px;
 }
 
-.bild {
+.bildZeit {
 	background-image: url("Zeit.jpg");
 	background-repeat: no-repeat;
 }
+
+.bildThermo {
+	background-image: url("Thermometer.jpg");
+	background-repeat: no-repeat;
+	background-position: -90% 0%;
+}
+
+.bildLänge {
+	background:
+	url("Geodreieck.jpg") 5% 45% no-repeat,
+	url("Lineal.jpg") 95% 60% no-repeat
+	;
+}
+
 
 
 

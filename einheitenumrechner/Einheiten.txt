@@ -1,0 +1,71 @@
+Länge:
+1 Nanometer (nm) = 1 * 10^-9 m = 0,000000001 m
+1 Mikrometer (µm) = 1 * 10^-6 m = 0,000001 m
+1 Millimeter (mm) = 1 * 10^-3 m = 0,001 m
+1 Zentimeter (cm) = 1 * 10^-2 m = 0,01 m
+1 Zoll (in) = 2, 54 * 10^-2 m = 0,0254 m
+1 Dezimeter (dm) = 1 * 10^-1 m = 0,1 m
+1 Fuß (f) = 3,048 * 10^-1 m = 0,3048 m
+1 Yard (yd) = 9,144 * 10^-1 m = 0,9144 m
+1 Meter (m) = 1 * 10^0 m = 1 m
+1 Kilometer (km) = 1 * 10^3 m = 1000 m
+1 Meile (M) = 1,60934 * 10^3 m = 1609,34 m
+1 Seemeile (sm) = 1,852 * 10^3 m = 1852 m
+1 Astronomische Einheit (AE) = 149,5978707 * 10^9 m = 149597870700 m
+1 Lichtjahr (lj) = 9,461 * 10^15 m = 9460730472580800 m
+
+Temperatur:
+0 Kelvin (K) = -273,15° C  
+0° Fahrenheit (F) = -17,7778° C
+0° Celsius (C) = 0° C
+
+Zeit:
+1 Nanosekunde (ns) = 1 * 10^-9 s = 0,000000001 s
+1 Mikrosekunde (µm) = 1 * 10^-6 s = 0,000001 s
+1 Millisekunde (ms) = 1 * 10^-3 s = 0,001 s
+1 Sekunde (s) = 1 * 10^0 s = 1 s
+1 Minute (min) = 60 s
+1 Stunde (h) = 3600 s
+1 Tag (d) = 86400 s
+1 Woche (w) = 604800 s
+1 Monat (M) = 2628000000 s
+1 Jahr (j) = 31540000000 s
+
+Fläche:
+1 Quadratmillimeter (mm²) = 1 * 10^-6 m² = 0,000001 m²
+1 Quadratcentimeter (cm²) = 1 * 10^-4 m² = 0,0001 m²
+1 Quadratdezimeter (dm²) = 1 * 10^-2 m² = 0,01 m²
+1 Quadratmeter (m²) = 1 * 10^0 m² = 1 m²
+1 Acre (ar) = 4,04686 * 10^3 m² = 4046,86 m²
+1 Hektar (he) = 1 * 10^4 m² = 10000 m²
+1 Quadratkilometer (km²) = 1 * 10^6 m² = 1000000 m²
+1 Quadratmeile (M²) = 2,59 * 10^6 m² = 2590000 m²
+
+Masse:
+1 Nanogramm (ng) = 1 * 10^-9 g = 0,000000001 g
+1 Mikrogramm (µg) = 1 * 10^-6 g = 0,000001 g
+1 Milligramm (mg) = 1 * 10^-3 g = 0,001 g
+1 Gramm (g) = 1 * 10^0 g = 1 g
+1 Unze (u) = 2,83495 * 10^1 g = 28,3495 g
+1 Pfund (p) = 4,53592 * 10^2 g = 453,592 g
+1 Kilogramm (kg) = 1 * 10^3 g = 1000 g
+1 Stone (s) = 6,35029 * 10^3 g = 6350,29 g
+1 Tonne (t) = 1 * 10^6 g = 1000000 g
+
+Volumen:
+1 Kubikmillimeter (mm³) = 1 * 10^-9 m² = 0,000000001 m³
+1 Kubikcentimeter (cm³) = 1 * 10^-6 m³ = 0,000001 m³
+1 Milliliter (ml) = 1 * 10^-6 m³ = 0,000001 m³
+1 Kubikdezimeter (dm³) = 1 * 10^-3 m³ = 0,001 m³
+1 Liter (l) = 1 * 10^-3 m³ = 0,001 m³
+1 Kubikmeter (m³) = 1 * 10^0 m³ = 1 m³
+1 Kubikkilometer (km³) = 1 * 10^9 m³ = 1000000000 m³
+1 Kubikmeile (mi³) = 4,168 * 10^9 m³ = 4168000000 m³
+
+Temperatur Formeln: (x=Fahrenheit, y=Kelvin, z=Celsius)
+Kelvin über Fahrenheit ermitteln: y = (x+459.67) / 1.8  
+Fahrenheit über Kelvin ermitteln: x = y * 1.8 - 459.67
+Celsius über Fahrenheit ermitteln: z = (x-32) / 1.8
+Fahrenheit über Celsius ermitteln: x = z * 1.8 + 32
+Celsius über Kelvin ermitteln: z = y - 273.15
+Kelvin über Celsius ermitteln: y = z + 273.15
