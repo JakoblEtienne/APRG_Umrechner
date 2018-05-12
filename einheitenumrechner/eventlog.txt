@@ -4,3 +4,4 @@
 09.05.2018: Layout der Startseite                                                              Jakob l'Etienne, Fabian Hensel 2 Std
 09.05.2018: Layout von Temperatur, Zeit erstellt und Buttons angepasst + Verschönerungen       Fabian Hensel       30 Min
 10.05.2018: Formeln für Temperatur, Zeit erstellt + Verschönerungen (Bilder eingefügt)         Fabian Hensel       60 Min
+12.05.2018: Restliche Formeln erstellt (Länge, Fläche, Volumen, Masse)			       Fabian Hensel       90 Min
