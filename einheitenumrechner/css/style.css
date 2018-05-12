@@ -93,15 +93,37 @@ form {
 	font-size: 18px;
 }
 
+.buttonVolumen {
+	float: left;
+	margin-left: 18.63%;
+	margin-top: 5px;
+	font-size: 18px;
+}
+
+.buttonMasse {
+	float: left;
+	margin-left: 21.22%;
+	margin-top: 5px;
+	font-size: 18px;
+}
+
+.buttonFläche {
+	float: left;
+	margin-left: 16.81%;
+	margin-top: 5px;
+	font-size: 18px;
+}
+
 .bildZeit {
-	background-image: url("Zeit.jpg");
-	background-repeat: no-repeat;
+	background: 
+	url("Zeit.jpg") no-repeat
+	;
 }
 
 .bildThermo {
-	background-image: url("Thermometer.jpg");
-	background-repeat: no-repeat;
-	background-position: -90% 0%;
+	background:
+	url("Thermometer.jpg") -90% 0% no-repeat
+	;
 }
 
 .bildLänge {

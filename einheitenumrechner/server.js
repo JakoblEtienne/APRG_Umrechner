@@ -47,3 +47,5 @@ app.get('/temperatur', (req, res) => {
 	res.render('temperatur')
 });
 
+
+
