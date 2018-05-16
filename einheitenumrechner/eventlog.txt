@@ -7,3 +7,4 @@
 12.05.2018: Restliche Formeln erstellt (Länge, Fläche, Volumen, Masse)			       Fabian Hensel       90 Min
 12.05.2018: Layout von Masse, Fläche, Volumen erstellt und Buttons angepasst                   Fabian Hensel       10 Min
 16.05.2018: Farbänderung erstellt + Verschönerungen                                            Fabian Hensel       60 Min
+16.05.2018: Weitere Farben hinzugefügt                                                         Fabian Hensel        5 Min
