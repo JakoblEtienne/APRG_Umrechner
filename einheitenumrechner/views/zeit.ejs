@@ -4,7 +4,18 @@
 		<title>Zeit</title>
 	</head>
 	<body class="bildZeit">
-		<ul>
+	
+		<script>
+			function getSelectColor() { 
+				const selectedValue = document.getElementById("colorLänge").value;
+				document.getElementById("color").style.backgroundColor = selectedValue;
+				document.getElementById("color2").style.color = selectedValue;
+				document.getElementById("color3").style.color = selectedValue;
+				console.log(selectedValue);
+			} 
+		</script> 
+		
+		<ul id="color" style="background-color: blue">
 			<li><a href="/laengen">Länge</a></li>
 			<li><a href="/flaechen">Fläche</a></li>
 			<li><a href="/volumen">Volumen</a></li>
@@ -14,8 +25,17 @@
 			<li class="right"><a href="/DEEN">DE/EN</a></li>
 		</ul>
 		
+		<select class="colorChange" id="colorLänge" onchange="getSelectColor();">
+			<option value="red" style="background-color: red"> </option>
+			<option value="green" style="background-color: green" > </option>
+			<option value="blue" style="background-color: blue"> </option>
+		</select> 
+		
 		<div class="formel">
-			Hier kommt die Formel rein
+			<fieldset class="fieldsetFormel">
+				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
+					
+			</fieldset>
 		</div>
 		
 		<section>
@@ -61,7 +81,10 @@
 		</section>
 		
 		<div class="spruch">
-			Hier kommt der Spruch rein
+			<fieldset class="fieldsetSpruch">
+				<legend id="color3" class="legendSpruch"><em>Spruch:</em></legend>
+				
+			</fieldset>
 		</div>
 	</body>
 </html>

@@ -4,7 +4,18 @@
 		<title>Längen</title>
 	</head>
 	<body class="bildLänge">
-		<ul>
+	
+		<script>
+			function getSelectColor() { 
+				const selectedValue = document.getElementById("colorLänge").value;
+				document.getElementById("color").style.backgroundColor = selectedValue;
+				document.getElementById("color2").style.color = selectedValue;
+				document.getElementById("color3").style.color = selectedValue;
+				console.log(selectedValue);
+			} 
+		</script> 
+		
+		<ul id="color" style="background-color: blue">
 			<li><a class="active" href="/laengen">Länge</a></li>
 			<li><a href="/flaechen">Fläche</a></li>
 			<li><a href="/volumen">Volumen</a></li>
@@ -13,19 +24,28 @@
 			<li><a href="/temperatur">Temperatur</a></li>
 			<li class="right"><a href="/DEEN">DE/EN</a></li>
 		</ul>
-		<script> 
+		<!-- <script> 
 			alert("Willkommen, über die obere Leiste können die jeweiligen Einheitsformen ausgewählt werden! Viel Spaß beim umrechnen!");
-		</script>  
+		</script>  -->
 		
+		<select class="colorChange" id="colorLänge" onchange="getSelectColor();">
+			<option value="red" style="background-color: red"> </option>
+			<option value="green" style="background-color: green" > </option>
+			<option value="blue" style="background-color: blue"> </option>
+		</select> 
+
 		<div class="formel">
-			Hier kommt die Formel rein
+			<fieldset class="fieldsetFormel">
+				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
+					
+			</fieldset>
 		</div>
 		
 		<section>
 		<form action="/onLaengen" method="post">
 			<input type="text" name="number">
 		
-		<select>
+		<select id="listLänge1" onchange="getSelectValue();">
 			<option value="nm" selected>Nanometer</option>
 			<option value="µm">Mikrometer</option>
 			<option value="mm">Millimeter</option>
@@ -48,7 +68,7 @@
 			
 		</div>
 		
-		<select>
+		<select id="listLänge2" onchange="getSelectValue();">
 			<option value="nm" selected>Nanometer</option>
 			<option value="µm">Mikrometer</option>
 			<option value="mm">Millimeter</option>
@@ -65,6 +85,14 @@
 			<option value="lj">Lichtjahr</option>
 		</select>
 		
+		<script>
+			function getSelectValue() { 
+				var selectedValue1 = document.getElementById("listLänge1").value;
+				var selectedValue2 = document.getElementById("listLänge2").value;
+				console.log(selectedValue1, selectedValue2);
+			}
+		</script>
+		
 		<br><button type="submit" class="buttonLänge">umrechnen</button>
 		
 		</form>
@@ -72,7 +100,10 @@
 		</section>
 		
 		<div class="spruch">
-			Hier kommt der Spruch rein
+			<fieldset class="fieldsetSpruch">
+				<legend id="color3" class="legendSpruch"><em>Spruch:</em></legend>
+				
+			</fieldset>
 		</div>
 	</body>
 </html>

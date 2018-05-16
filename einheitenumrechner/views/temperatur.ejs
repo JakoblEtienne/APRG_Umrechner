@@ -4,7 +4,18 @@
 		<title>Temperatur</title>
 	</head>
 	<body class="bildThermo">
-		<ul>
+	
+		<script>
+			function getSelectColor() { 
+				const selectedValue = document.getElementById("colorLänge").value;
+				document.getElementById("color").style.backgroundColor = selectedValue;
+				document.getElementById("color2").style.color = selectedValue;
+				document.getElementById("color3").style.color = selectedValue;
+				console.log(selectedValue);
+			} 
+		</script> 
+		
+		<ul id="color" style="background-color: blue">
 			<li><a href="/laengen">Länge</a></li>
 			<li><a href="/flaechen">Fläche</a></li>
 			<li><a href="/volumen">Volumen</a></li>
@@ -14,15 +25,24 @@
 			<li class="right"><a href="/DEEN">DE/EN</a></li>
 		</ul>
 		
+		<select class="colorChange" id="colorLänge" onchange="getSelectColor();">
+			<option value="red" style="background-color: red"> </option>
+			<option value="green" style="background-color: green" > </option>
+			<option value="blue" style="background-color: blue"> </option>
+		</select> 
+		
 		<div class="formel">
-			Hier kommt die Formel rein
+			<fieldset class="fieldsetFormel">
+				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
+					
+			</fieldset>
 		</div>
 		
 		<section>
 		<form action="/onTemperatur" method="post">
 			<input type="text" name="number">
 			
-		<select>
+		<select id="listTemp1" onchange="getSelectValue();">
 			<option value="C" selected>Celsius</option>
 			<option value="F">Fahrenheit</option>
 			<option value="K">Kelvin</option>
@@ -34,11 +54,24 @@
 			
 		</div>
 		
-		<select>
+		<select id="listTemp2" onchange="getSelectValue();">
 			<option value="C" selected>Celsius</option>
 			<option value="F">Fahrenheit</option>
 			<option value="K">Kelvin</option>
 		</select>
+		
+		<script>
+			function getSelectValue() { 
+				var selectedValue1 = document.getElementById("listTemp1").value;
+				var selectedValue2 = document.getElementById("listTemp2").value;
+				console.log(selectedValue1, selectedValue2);
+				
+				if (selectedValue1 == "C" && selectedValue2 == "F") {
+					var link = document.createElement('link');
+					link.form = "x * 1.8 + 32";
+				}
+			}
+		</script>
 		
 		<br><button type="submit" class="buttonTemp">umrechnen</button>
 		
@@ -47,7 +80,10 @@
 		</section>
 		
 		<div class="spruch">
-			Hier kommt der Spruch rein
+			<fieldset class="fieldsetSpruch">
+				<legend id="color3" class="legendSpruch"><em>Spruch:</em></legend>
+				
+			</fieldset>
 		</div>
 	</body>
 </html>

@@ -3,7 +3,6 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: blue;
 	font-family: Verdana;
 }
 
@@ -25,7 +24,7 @@ li a:hover {
 }
 
 .active {
-    background-color: darkblue;
+    background-color: black;
     color: white;
 }
 
@@ -35,8 +34,8 @@ li a:hover {
 
 section {
 	text-align: center;
-	padding-top: 11%;
-	padding-bottom: 23%;
+	padding-top: 2%;
+	padding-bottom: 15%;
 }
 
 select {
@@ -51,15 +50,44 @@ form {
 	display: inline;
 }
 
+.colorChange { 
+	max-width: 180px;
+	margin-left: 98%;
+	font-size: 15px;
+}
+
 .formel {
 	text-align: center;
-	padding-top: 11%;
+	padding-top: 7%;
 	font-size: 24px;
+}
+
+.fieldsetFormel {
+	text-align: center;
+	max-width: 300px;
+	height: 70px;
+	margin: 2em auto;
+}
+
+.legendFormel {
+	color: blue;
 }
 
 .spruch {
 	text-align: center;
 	font-size: 20px;
+}
+
+.fieldsetSpruch {
+	text-align: center;
+	max-width: 700px;
+	height: 45px;
+	margin: 2em auto;
+}
+
+.legendSpruch {
+	color: blue;
+	font-size: 24px;
 }
 
 .ergebnis {
@@ -131,6 +159,8 @@ form {
 	url("Geodreieck.jpg") 5% 45% no-repeat
 	;
 }
+
+
 
 
 
