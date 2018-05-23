@@ -39,7 +39,7 @@
 		<div class="formel">
 			<fieldset class="fieldsetFormel">
 				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
-					
+					<%= formel %>
 			</fieldset>
 		</div>
 		
@@ -47,7 +47,7 @@
 		<form action="/onTemperatur" method="post">
 			<input type="text" name="number">
 			
-		<select id="listTemp1" onchange="getSelectValue();">
+		<select name="Temp1">
 			<option value="C" selected>Celsius</option>
 			<option value="F">Fahrenheit</option>
 			<option value="K">Kelvin</option>
@@ -59,24 +59,11 @@
 			
 		</div>
 		
-		<select id="listTemp2" onchange="getSelectValue();">
+		<select name="Temp2">
 			<option value="C" selected>Celsius</option>
 			<option value="F">Fahrenheit</option>
 			<option value="K">Kelvin</option>
 		</select>
-		
-		<script>
-			function getSelectValue() { 
-				var selectedValue1 = document.getElementById("listTemp1").value;
-				var selectedValue2 = document.getElementById("listTemp2").value;
-				console.log(selectedValue1, selectedValue2);
-				
-				if (selectedValue1 == "C" && selectedValue2 == "F") {
-					var link = document.createElement('link');
-					link.form = "x * 1.8 + 32";
-				}
-			}
-		</script>
 		
 		<br><button type="submit" class="buttonTemp">umrechnen</button>
 		

@@ -1,10 +1,11 @@
 02.05.2018: Server initialisiert / Body-Parser, ejs, express und sqlite3 installiert           Fabian Hensel       15 Min
 03.05.2018: Grundgerüste der ejs-Seiten Zeit, Temperatur und Längen erstellt                   Fabian Hensel       15 Min
 08.05.2018: Alle Seiten in der server.js verlinkt (mit app.get) + Navigation-Prototyp + CSS    Jakob l'Etienne	   30 Min
-09.05.2018: Layout der Startseite                                                              Jakob l'Etienne, Fabian Hensel 2 Std
+09.05.2018: Layout der Startseite                                                              Jakob, Fabian      120 Min
 09.05.2018: Layout von Temperatur, Zeit erstellt und Buttons angepasst + Verschönerungen       Fabian Hensel       30 Min
 10.05.2018: Formeln für Temperatur, Zeit erstellt + Verschönerungen (Bilder eingefügt)         Fabian Hensel       60 Min
 12.05.2018: Restliche Formeln erstellt (Länge, Fläche, Volumen, Masse)			       Fabian Hensel       90 Min
 12.05.2018: Layout von Masse, Fläche, Volumen erstellt und Buttons angepasst                   Fabian Hensel       10 Min
 16.05.2018: Farbänderung erstellt + Verschönerungen                                            Fabian Hensel       60 Min
 16.05.2018: Weitere Farben hinzugefügt                                                         Fabian Hensel        5 Min
+23.05.2018: Formel Tabelle in Datenbank erstellt + Anzeigen der Formeln                        Jakob, Fabian      150 Min                                         

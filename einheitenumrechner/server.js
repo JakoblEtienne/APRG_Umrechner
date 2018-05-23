@@ -44,9 +44,28 @@ app.get('/zeit', (req, res) => {
 	res.render('zeit')
 });
 app.get('/temperatur', (req, res) => {
-	res.render('temperatur')
+	res.render('temperatur', {
+		'formel': ''
+	});
 });
 
+app.post('/onTemperatur', (req, res) => {
+	const sel1 = req.body.Temp1;
+	const sel2 = req.body.Temp2;
+	
+	const sql = `SELECT formel FROM temperaturFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	db.get(sql, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('temperatur', {
+				'formel': row.formel
+			});
+		}
+	});
+});
 
-
-
+// const sql = 'CREATE TABLE temperaturFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL)';
+// const sql = `INSERT INTO temperaturFormel (von, nach, formel) VALUES ('C', 'C', 'x * 1')`
+// db.run(`INSERT INTO temperaturFormel (von, nach, formel) VALUES ('C', 'C', 'x * 1')`);
