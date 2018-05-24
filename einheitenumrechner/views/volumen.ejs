@@ -4,7 +4,18 @@
 		<title>Volumen</title>
 	</head>
 	<body>
-		<ul>
+	
+		<script>
+			function getSelectColor() { 
+				const selectedValue = document.getElementById("colorLänge").value;
+				document.getElementById("color").style.backgroundColor = selectedValue;
+				document.getElementById("color2").style.color = selectedValue;
+				document.getElementById("color3").style.color = selectedValue;
+				console.log(selectedValue);
+			} 
+		</script> 
+		
+		<ul id="color" style="background-color: blue">
 			<li><a href="/laengen">Länge</a></li>
 			<li><a href="/flaechen">Fläche</a></li>
 			<li><a class="active" href="/volumen">Volumen</a></li>
@@ -14,9 +25,20 @@
 			<li class="right"><a href="/DEEN">DE/EN</a></li>
 		</ul>
 		
+		<select class="colorChange" id="colorLänge" onchange="getSelectColor();">
+			<option value="blue" style="background-color: blue"> </option>
+			<option value="red" style="background-color: red"> </option>
+			<option value="green" style="background-color: green" > </option>
+			<option value="lightgreen" style="background-color: lightgreen"> </option>
+			<option value="violet" style="background-color: violet"> </option>
+			<option value="purple" style="background-color: purple"> </option>
+			<option value="orange" style="background-color: orange"> </option>
+			<option value="black" style="background-color: black"> </option>
+		</select> 
+		
 		<div class="formel">
 			<fieldset class="fieldsetFormel">
-				<legend class="legendFormel"><em>Formel:</em></legend>
+				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
 					
 			</fieldset>
 		</div>
@@ -61,7 +83,7 @@
 		
 		<div class="spruch">
 			<fieldset class="fieldsetSpruch">
-				<legend class="legendSpruch"><em>Spruch:</em></legend>
+				<legend id="color3" class="legendSpruch"><em>Spruch:</em></legend>
 				
 			</fieldset>
 		</div>
