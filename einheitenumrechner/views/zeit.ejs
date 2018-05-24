@@ -39,7 +39,7 @@
 		<div class="formel">
 			<fieldset class="fieldsetFormel">
 				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
-					
+					<%= formel %>
 			</fieldset>
 		</div>
 		
@@ -47,7 +47,7 @@
 		<form action="/onZeit" method="post">
 			<input type="text" name="number">
 			
-		<select>
+		<select name="Temp1">
 			<option value="ns" selected>Nanosekunde</option>
 			<option value="µs">Mikrosekunde</option>
 			<option value="ms">Millisekunde</option>
@@ -56,7 +56,6 @@
 			<option value="h">Stunde</option>
 			<option value="d">Tag</option>
 			<option value="w">Woche</option>
-			<option value="mo">Monat</option>
 			<option value="j">Jahr</option>
 		</select>
 		
@@ -66,7 +65,7 @@
 			
 		</div>
 		
-		<select>
+		<select name="Temp2">
 			<option value="ns" selected>Nanosekunde</option>
 			<option value="µs">Mikrosekunde</option>
 			<option value="ms">Millisekunde</option>
@@ -75,7 +74,6 @@
 			<option value="h">Stunde</option>
 			<option value="d">Tag</option>
 			<option value="w">Woche</option>
-			<option value="mo">Monat</option>
 			<option value="j">Jahr</option>
 		</select>
 		
