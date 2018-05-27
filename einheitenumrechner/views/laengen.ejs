@@ -42,7 +42,7 @@
 		<div class="formel">
 			<fieldset class="fieldsetFormel">
 				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
-					
+					y = x * <%= formel %>
 			</fieldset>
 		</div>
 		
@@ -50,7 +50,7 @@
 		<form action="/onLaengen" method="post">
 			<input type="text" name="number">
 		
-		<select id="listLänge1" onchange="getSelectValue();">
+		<select name="Temp1">
 			<option value="nm" selected>Nanometer</option>
 			<option value="µm">Mikrometer</option>
 			<option value="mm">Millimeter</option>
@@ -62,7 +62,7 @@
 			<option value="m">Meter</option>
 			<option value="km">Kilometer</option>
 			<option value="mi">Meile</option>
-			<option value="sm">Seemeile</option>
+			<option value="smi">Seemeile</option>
 			<option value="ae">Astro. Einheit</option>
 			<option value="lj">Lichtjahr</option>
 		</select>
@@ -73,7 +73,7 @@
 			
 		</div>
 		
-		<select id="listLänge2" onchange="getSelectValue();">
+		<select name="Temp2">
 			<option value="nm" selected>Nanometer</option>
 			<option value="µm">Mikrometer</option>
 			<option value="mm">Millimeter</option>
@@ -85,18 +85,10 @@
 			<option value="m">Meter</option>
 			<option value="km">Kilometer</option>
 			<option value="mi">Meile</option>
-			<option value="sm">Seemeile</option>
+			<option value="smi">Seemeile</option>
 			<option value="ae">Astro. Einheit</option>
 			<option value="lj">Lichtjahr</option>
 		</select>
-		
-		<script>
-			function getSelectValue() { 
-				var selectedValue1 = document.getElementById("listLänge1").value;
-				var selectedValue2 = document.getElementById("listLänge2").value;
-				console.log(selectedValue1, selectedValue2);
-			}
-		</script>
 		
 		<br><button type="submit" class="buttonLänge">umrechnen</button>
 		
