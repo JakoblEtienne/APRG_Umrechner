@@ -33,20 +33,30 @@ app.get('/laengen', (req, res) => {
 		'formel': ''
 	});
 });
+
 app.get('/flaechen', (req, res) => {
-	res.render('flaechen')
+	res.render('flaechen', {
+		'formel': ''
+	});
 });
+
 app.get('/volumen', (req, res) => {
-	res.render('volumen')
+	res.render('volumen', {
+		'formel': ''
+	});
 });
+
 app.get('/masse', (req, res) => {
-	res.render('masse')
+	res.render('masse', {
+		'formel': ''
+	});
 });
 app.get('/zeit', (req, res) => {
 	res.render('zeit', {
 		'formel': ''
 	});
 });
+
 app.get('/temperatur', (req, res) => {
 	res.render('temperatur', {
 		'formel': ''
@@ -98,6 +108,57 @@ app.post('/onZeit', (req, res) => {
 		}
 		else {
 			res.render('zeit', {
+				'formel': row.formel
+			});
+		}
+	});
+});
+
+app.post('/onFlaechen', (req, res) => {
+	const sel1 = req.body.Temp1;
+	const sel2 = req.body.Temp2;
+	
+	const sql = `SELECT formel FROM flaechenFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	db.get(sql, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('flaechen', {
+				'formel': row.formel
+			});
+		}
+	});
+});
+
+app.post('/onVolumen', (req, res) => {
+	const sel1 = req.body.Temp1;
+	const sel2 = req.body.Temp2;
+	
+	const sql = `SELECT formel FROM volumenFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	db.get(sql, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('volumen', {
+				'formel': row.formel
+			});
+		}
+	});
+});
+
+app.post('/onMasse', (req, res) => {
+	const sel1 = req.body.Temp1;
+	const sel2 = req.body.Temp2;
+	
+	const sql = `SELECT formel FROM masseFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	db.get(sql, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('masse', {
 				'formel': row.formel
 			});
 		}
@@ -427,13 +488,270 @@ db.run(`INSERT INTO laengenFormel(von, nach, formel) VALUES ('lj', 'lj', '1')`);
 */
 
 
+//db.run('CREATE TABLE flaechenFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL)');
+/* db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mm²', 'mm²', '1')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mm²', 'cm²', '10^-2')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mm²', 'dm²', '10^-4')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mm²', 'm²', '10^-6')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mm²', 'ar', '10^-6 / 4046,86')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mm²', 'he', '10^-6 / 10000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mm²', 'km²', '10^-6 / 1000000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mm²', 'mi²', '10^-6 / 2590000')`);
+*/
+
+/*db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('cm²', 'mm²', '10^2')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('cm²', 'cm²', '1')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('cm²', 'dm²', '10^-2')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('cm²', 'm²', '10^-4')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('cm²', 'ar', '10^-4 / 4046,86')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('cm²', 'he', '10^-4 / 10000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('cm²', 'km²', '10^-4 / 1000000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('cm²', 'mi²', '10^-4 / 2590000')`);
+*/
+
+/*db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('dm²', 'mm²', '10^4')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('dm²', 'cm²', '10^2')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('dm²', 'dm²', '1')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('dm²', 'm²', '10^-2')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('dm²', 'ar', '10^-2 / 4046,86')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('dm²', 'he', '10^-2 / 10000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('dm²', 'km²', '10^-2 / 1000000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('dm²', 'mi²', '10^-2 / 2590000')`);
+*/
+
+/*db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('m²', 'mm²', '10^6')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('m²', 'cm²', '10^4')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('m²', 'dm²', '10^2')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('m²', 'm²', '1')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('m²', 'ar', '1 / 4046,86')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('m²', 'he', '1 / 10000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('m²', 'km²', '1 / 1000000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('m²', 'mi²', '1 / 2590000')`);
+*/
+
+/*db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('ar', 'mm²', '4046,86 * 10^6')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('ar', 'cm²', '4046,86 * 10^4')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('ar', 'dm²', '4046,86 * 10^2')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('ar', 'm²', '4046,86')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('ar', 'ar', '1')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('ar', 'he', '4046,86 / 10000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('ar', 'km²', '4046,86 / 1000000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('ar', 'mi²', '4046,86 / 2590000')`);
+*/
+
+/*db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('he', 'mm²', '10^10')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('he', 'cm²', '10^8')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('he', 'dm²', '10^6')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('he', 'm²', '10^4')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('he', 'ar', '10000 / 4046,68')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('he', 'he', '1')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('he', 'km²', '10000 / 1000000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('he', 'mi²', '10000 / 2590000')`);
+*/
+
+/*db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('km²', 'mm²', '10^12')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('km²', 'cm²', '10^10')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('km²', 'dm²', '10^8')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('km²', 'm²', '10^6')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('km²', 'ar', '1000000 / 4046,68')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('km²', 'he', '1000000 / 10000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('km²', 'km²', '1')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('km²', 'mi²', '1000000 / 2590000')`);
+*/
+
+/*db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mi²', 'mm²', '2,59 * 10^12')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mi²', 'cm²', '2,59 * 10^10')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mi²', 'dm²', '2,59 * 10^8')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mi²', 'm²', '2,59 * 10^6')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mi²', 'ar', '2590000 / 4046,68')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mi²', 'he', '2590000 / 10000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mi²', 'km²', '2590000 / 1000000')`);
+db.run(`INSERT INTO flaechenFormel(von, nach, formel) VALUES ('mi²', 'mi²', '1')`);
+*/
 
 
+//db.run('CREATE TABLE volumenFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL)');
+/*db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mm³', 'mm³', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mm³', 'cm³', '10^-3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mm³', 'ml', '10^-3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mm³', 'dm³', '10^-6')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mm³', 'l', '10^-6')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mm³', 'm³', '10^-9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mm³', 'km³', '10^-9 / 10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mm³', 'mi³', '10^-9 / 2,59 * 10^9')`);
+*/
+
+/*db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('cm³', 'mm³', '10^3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('cm³', 'cm³', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('cm³', 'ml', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('cm³', 'dm³', '10^-3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('cm³', 'l', '10^-3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('cm³', 'm³', '10^-6')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('cm³', 'km³', '10^-6 / 10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('cm³', 'mi³', '10^-6 / 2,59 * 10^9')`);
+*/
+
+/*db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('ml', 'mm³', '10^3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('ml', 'cm³', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('ml', 'ml', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('ml', 'dm³', '10^-3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('ml', 'l', '10^-3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('ml', 'm³', '10^-6')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('ml', 'km³', '10^-6 / 10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('ml', 'mi³', '10^-6 / 2,59 * 10^9')`);
+*/
+
+/*db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('dm³', 'mm³', '10^6')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('dm³', 'cm³', '10^3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('dm³', 'ml', '10^3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('dm³', 'dm³', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('dm³', 'l', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('dm³', 'm³', '10^-3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('dm³', 'km³', '10^-3 / 10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('dm³', 'mi³', '10^-3 / 2,59 * 10^9')`);
+*/
+
+/*db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('l', 'mm³', '10^6')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('l', 'cm³', '10^3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('l', 'ml', '10^3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('l', 'dm³', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('l', 'l', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('l', 'm³', '10^-3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('l', 'km³', '10^-3 / 10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('l', 'mi³', '10^-3 / 2,59 * 10^9')`);
+*/
+
+/*db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('m³', 'mm³', '10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('m³', 'cm³', '10^6')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('m³', 'ml', '10^6')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('m³', 'dm³', '10^3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('m³', 'l', '10^3')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('m³', 'm³', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('m³', 'km³', '1 / 10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('m³', 'mi³', '1 / 2,59 * 10^9')`);
+*/
+
+/*db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('km³', 'mm³', '10^18')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('km³', 'cm³', '10^15')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('km³', 'ml', '10^15')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('km³', 'dm³', '10^12')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('km³', 'l', '10^12')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('km³', 'm³', '10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('km³', 'km³', '1')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('km³', 'mi³', '10^9 / 2,59 * 10^9')`);
+*/
+
+/*db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mi³', 'mm³', '2,59 * 10^18')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mi³', 'cm³', '2,59 * 10^15')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mi³', 'ml', '2,59 * 10^15')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mi³', 'dm³', '2,59 * 10^12')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mi³', 'l', '2,59 * 10^12')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mi³', 'm³', '2,59 * 10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mi³', 'km³', '2,59 * 10^9 / 10^9')`);
+db.run(`INSERT INTO volumenFormel(von, nach, formel) VALUES ('mi³', 'mi³', '1')`);
+*/
 
 
+//db.run('CREATE TABLE masseFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL)');
 
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 'ng', '1')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 'µg', '10^-3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 'mg', '10^-6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 'g', '10^-9')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 'u', '10^-9 / 28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 'p', '10^-9 / 453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 'kg', '10^-9 / 1000')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 's', '10^-9 / 6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('ng', 't', '10^-9 / 1000000')`);
+*/
 
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 'ng', '10^3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 'µg', '1')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 'mg', '10^-3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 'g', '10^-6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 'u', '10^-6 / 28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 'p', '10^-6 / 453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 'kg', '10^-6 / 1000')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 's', '10^-6 / 6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('µg', 't', '10^-6 / 1000000')`);
+*/
 
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 'ng', '10^6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 'µg', '10^3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 'mg', '1')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 'g', '10^-3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 'u', '10^-3 / 28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 'p', '10^-3 / 453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 'kg', '10^-3 / 1000')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 's', '10^-3 / 6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('mg', 't', '10^-3 / 1000000')`);
+*/
+
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 'ng', '10^9')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 'µg', '10^6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 'mg', '10^3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 'g', '1')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 'u', '1 / 28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 'p', '1 / 453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 'kg', '1 / 1000')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 's', '1 / 6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('g', 't', '1 / 1000000')`);
+*/
+
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 'ng', '28,3495 * 10^9')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 'µg', '28,3495 * 10^6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 'mg', '28,3495 * 10^3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 'g', '28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 'u', '1')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 'p', '28,3495 / 453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 'kg', '28,3495 / 1000')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 's', '28,3495 / 6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('u', 't', '28,3495 / 1000000')`);
+*/
+
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 'ng', '453,592 * 10^9')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 'µg', '453,592 * 10^6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 'mg', '453,592 * 10^3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 'g', '453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 'u', '453,592 / 28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 'p', '1')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 'kg', '453,592 / 1000')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 's', '453,592 / 6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('p', 't', '453,592 / 1000000')`);
+*/
+
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 'ng', '10^12')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 'µg', '10^9')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 'mg', '10^6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 'g', '10^3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 'u', '10^3 / 28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 'p', '10^3 / 453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 'kg', '1')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 's', '10^3 / 6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('kg', 't', '10^3 / 1000000')`);
+*/
+
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 'ng', '6350,29 * 10^9')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 'µg', '6350,29 * 10^6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 'mg', '6350,29 * 10^3')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 'g', '6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 'u', '6350,29 / 28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 'p', '6350,29 / 453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 'kg', '6350,29 / 1000')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 's', '1')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('s', 't', '6350,29 / 1000000')`);
+*/
+
+/*db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 'ng', '10^15')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 'µg', '10^12')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 'mg', '10^9')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 'g', '10^6')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 'u', '10^6 / 28,3495')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 'p', '10^6 / 453,592')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 'kg', '10^6 / 1000')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 's', '10^6 / 6350,29')`);
+db.run(`INSERT INTO masseFormel(von, nach, formel) VALUES ('t', 't', '1')`);
+*/
 
 
 

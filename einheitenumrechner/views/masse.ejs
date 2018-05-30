@@ -39,7 +39,7 @@
 		<div class="formel">
 			<fieldset class="fieldsetFormel">
 				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
-					
+					y = x * <%= formel %>
 			</fieldset>
 		</div>
 		
@@ -47,7 +47,7 @@
 		<form action="/onMasse" method="post">
 			<input type="text" name="number">
 			
-		<select>
+		<select name="Temp1">
 			<option value="ng" selected>Nanogramm</option>
 			<option value="µg">Mikrogramm</option>
 			<option value="mg">Milligramm</option>
@@ -65,7 +65,7 @@
 			
 		</div>
 		
-		<select>
+		<select name="Temp2">
 			<option value="ng" selected>Nanogramm</option>
 			<option value="µg">Mikrogramm</option>
 			<option value="mg">Milligramm</option>

@@ -39,7 +39,7 @@
 		<div class="formel">
 			<fieldset class="fieldsetFormel">
 				<legend id="color2" class="legendFormel"><em>Formel:</em></legend>
-					
+					y = x * <%= formel %>
 			</fieldset>
 		</div>
 		
@@ -47,7 +47,7 @@
 		<form action="/onVolumen" method="post">
 			<input type="text" name="number">
 			
-		<select>
+		<select name="Temp1">
 			<option value="mm³" selected>Kubikmillimeter</option>
 			<option value="cm³">Kubikcentimeter</option>
 			<option value="ml">Milliliter</option>
@@ -64,7 +64,7 @@
 			
 		</div>
 		
-		<select>
+		<select name="Temp2">
 			<option value="mm³" selected>Kubikmillimeter</option>
 			<option value="cm³">Kubikcentimeter</option>
 			<option value="ml">Milliliter</option>

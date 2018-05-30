@@ -11,4 +11,5 @@
 23.05.2018: Formel Tabelle in Datenbank erstellt + Anzeigen der Formeln                        Jakob, Fabian      150 Min
 24.05.2018: Formel Tabelle für Zeit erstellt + Formeln hinzugefügt                             Fabian Hensel       45 Min
 24.05.2018: Restliche Farbänderungen eingefügt 						       Jakob l'Etienne     20 Min 
-27.05.2018: Formel Tabelle für Länge erstellt + Formeln hinzugefügt                            Fabian Hensel      100 Min                                  
+27.05.2018: Formel Tabelle für Länge erstellt + Formeln hinzugefügt                            Fabian Hensel      100 Min
+30.05.2018: Formel Tabell für Fläche, Masse, Volumen erstellt + Formeln hinzugefügt            Jakob l'Etienne	  140 Min                      
