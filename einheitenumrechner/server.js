@@ -30,51 +30,67 @@ app.listen(port, function() {
 //Seiten-Links
 app.get('/laengen', (req, res) => {
 	res.render('laengen', {
-		'formel': ''
+		'formel': '',
+		'ergebnis': ''
 	});
 });
 
 app.get('/flaechen', (req, res) => {
 	res.render('flaechen', {
-		'formel': ''
+		'formel': '',
+		'ergebnis': ''
 	});
 });
 
 app.get('/volumen', (req, res) => {
 	res.render('volumen', {
-		'formel': ''
+		'formel': '',
+		'ergebnis': ''
 	});
 });
 
 app.get('/masse', (req, res) => {
 	res.render('masse', {
-		'formel': ''
+		'formel': '',
+		'ergebnis': ''
 	});
 });
 app.get('/zeit', (req, res) => {
 	res.render('zeit', {
-		'formel': ''
+		'formel': '',
+		'ergebnis': ''
 	});
 });
 
 app.get('/temperatur', (req, res) => {
 	res.render('temperatur', {
-		'formel': ''
+		'formel': '',
+		'ergebnis': ''
 	});
 });
 
 app.post('/onLaengen', (req, res) => {
 	const sel1 = req.body.Temp1;
 	const sel2 = req.body.Temp2;
+	const number = req.body.number;
+	//var rechenFormel;
+	//var calculation;
+	//var mal = "*";
+	var ergebnis;
 	
-	const sql = `SELECT formel FROM laengenFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	const sql = `SELECT formel FROM laengenFormel WHERE von='${sel1}' AND nach='${sel2}'` // const sql = `SELECT formel,rechenFormel FROM laengenFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
 			console.log(error.message);
 		}
 		else {
+			//rechenFormel = row.rechenFormel;
+			//calculation = number.concat(mal, rechenFormel);			
+			//ergebnis = eval(calculation.toString());
+			console.log(ergebnis);
 			res.render('laengen', {
-				'formel': row.formel
+				'formel': row.formel,
+				'ergebnis': ergebnis
 			});
 		}
 	});
@@ -83,32 +99,52 @@ app.post('/onLaengen', (req, res) => {
 app.post('/onTemperatur', (req, res) => {
 	const sel1 = req.body.Temp1;
 	const sel2 = req.body.Temp2;
+	const number = req.body.number;
+	var rechenFormel;
+	var calculation;
+	var ergebnis;
 	
-	const sql = `SELECT formel FROM temperaturFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	const sql = `SELECT formel,rechenFormel FROM temperaturFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
 			console.log(error.message);
 		}
 		else {
+			rechenFormel = row.rechenFormel;
+			calculation = number.concat(rechenFormel);			
+			ergebnis = eval(calculation.toString());
+			console.log(ergebnis);
 			res.render('temperatur', {
-				'formel': row.formel
+				'formel': row.formel,
+				'ergebnis': ergebnis
 			});
 		}
 	});
 });
 
+
 app.post('/onZeit', (req, res) => {
 	const sel1 = req.body.Temp1;
 	const sel2 = req.body.Temp2;
+	const number = req.body.number;
+	//var rechenFormel;
+	//var calculation;
+	//var mal = "*";
+	var ergebnis;
 	
-	const sql = `SELECT formel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	const sql = `SELECT formel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'` // const sql = `SELECT formel,rechenFormel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
 			console.log(error.message);
 		}
 		else {
+			//rechenFormel = row.rechenFormel;
+			//calculation = number.concat(mal, rechenFormel);			
+			//ergebnis = eval(calculation.toString());
+			console.log(ergebnis);
 			res.render('zeit', {
-				'formel': row.formel
+				'formel': row.formel,
+				'ergebnis': ergebnis
 			});
 		}
 	});
@@ -117,15 +153,25 @@ app.post('/onZeit', (req, res) => {
 app.post('/onFlaechen', (req, res) => {
 	const sel1 = req.body.Temp1;
 	const sel2 = req.body.Temp2;
+	const number = req.body.number;
+	//var rechenFormel;
+	//var calculation;
+	//var mal = "*";
+	var ergebnis;
 	
-	const sql = `SELECT formel FROM flaechenFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	const sql = `SELECT formel FROM flaechenFormel WHERE von='${sel1}' AND nach='${sel2}'` // const sql = `SELECT formel,rechenFormel FROM flaechenFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
 			console.log(error.message);
 		}
 		else {
+			//rechenFormel = row.rechenFormel;
+			//calculation = number.concat(mal, rechenFormel);			
+			//ergebnis = eval(calculation.toString());
+			console.log(ergebnis);
 			res.render('flaechen', {
-				'formel': row.formel
+				'formel': row.formel,
+				'ergebnis': ergebnis
 			});
 		}
 	});
@@ -134,15 +180,25 @@ app.post('/onFlaechen', (req, res) => {
 app.post('/onVolumen', (req, res) => {
 	const sel1 = req.body.Temp1;
 	const sel2 = req.body.Temp2;
+	const number = req.body.number;
+	//var rechenFormel;
+	//var calculation;
+	//var mal = "*";
+	var ergebnis;
 	
-	const sql = `SELECT formel FROM volumenFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	const sql = `SELECT formel FROM volumenFormel WHERE von='${sel1}' AND nach='${sel2}'` //const sql = `SELECT formel,rechenFormel FROM volumenFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
 			console.log(error.message);
 		}
 		else {
+			//rechenFormel = row.rechenFormel;
+			//calculation = number.concat(mal, rechenFormel);			
+			//ergebnis = eval(calculation.toString());
+			console.log(ergebnis);
 			res.render('volumen', {
-				'formel': row.formel
+				'formel': row.formel,
+				'ergebnis': ergebnis
 			});
 		}
 	});
@@ -151,23 +207,41 @@ app.post('/onVolumen', (req, res) => {
 app.post('/onMasse', (req, res) => {
 	const sel1 = req.body.Temp1;
 	const sel2 = req.body.Temp2;
+	const number = req.body.number;
+	//var rechenFormel;
+	//var calculation;
+	//var mal = "*";
+	var ergebnis;
 	
-	const sql = `SELECT formel FROM masseFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	const sql = `SELECT formel FROM masseFormel WHERE von='${sel1}' AND nach='${sel2}'`  //const sql = `SELECT formel,rechenFormel FROM masseFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
 			console.log(error.message);
 		}
 		else {
+			//rechenFormel = row.rechenFormel;
+			//calculation = number.concat(mal, rechenFormel);			
+			//ergebnis = eval(calculation.toString());
+			console.log(ergebnis);
 			res.render('masse', {
-				'formel': row.formel
+				'formel': row.formel,
+				'ergebnis': ergebnis
 			});
 		}
 	});
 });
 
-// const sql = 'CREATE TABLE temperaturFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL)';
-// const sql = `INSERT INTO temperaturFormel (von, nach, formel) VALUES ('C', 'C', 'x * 1')`
-// db.run(`INSERT INTO temperaturFormel (von, nach, formel) VALUES ('C', 'C', 'x * 1')`);
+//db.run('CREATE TABLE temperaturFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL, rechenFormel TEXT NOT NULL)');
+/*db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('C', 'C', 'x * 1', '* Math.pow(1,0)')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('C', 'F', 'x * 1.8 + 32', '* 1.8 + 32')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('C', 'K', 'x + 273.15', '+ 273.15')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'F', 'x * 1', '1')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'C', '(x - 32) / 1.8', ' - 32 / 1.8')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'K', '(x + 459.67) / 1.8', '+459.67 / 1.8')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('K', 'K', 'x * 1', '1')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('K', 'C', 'x - 273.15', '-273.15')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('K', 'F', 'x * 1.8 - 459.67', '* 1.8 - 459.67')`);
+*/
 
 // db.run('CREATE TABLE zeitFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL)');
 /* db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'ns', '1')`);
