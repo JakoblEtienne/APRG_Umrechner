@@ -727,9 +727,6 @@ db.run(`INSERT INTO volumenFormel(von, nach, formel, rechenFormel) VALUES ('mi³
 */
 
 
-
-
-
 //db.run('CREATE TABLE masseFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL, rechenFormel TEXT NOT NULL)');
 /*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('ng', 'ng', '1', '1')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('ng', 'µg', '10^-3', 'Math.pow(10, -3)')`);
@@ -740,9 +737,9 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('ng', '
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('ng', 'kg', '10^-9 / 1000', 'Math.pow(10, -9) / 1000)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('ng', 's', '10^-9 / 6350,29', 'Math.pow(10, -9) / 6350.29)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('ng', 't', '10^-9 / 1000000', 'Math.pow(10, -9) / 1000000)')`);
+*/
 
-
-db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 'ng', '10^3', 'Math.pow(10, 3)')`);
+/*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 'ng', '10^3', 'Math.pow(10, 3)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 'µg', '1', '1')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 'mg', '10^-3', 'Math.pow(10, -3)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 'g', '10^-6', 'Math.pow(10, -6)')`);
@@ -751,9 +748,9 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 'kg', '10^-6 / 1000', 'Math.pow(10, -6) / 1000')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 's', '10^-6 / 6350,29', 'Math.pow(10, -6) / 6350.29')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('µg', 't', '10^-6 / 1000000', 'Math.pow(10, -6) / 1000000')`);
+*/
 
-
-db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', 'ng', '10^6', 'Math.pow(10, 6)')`);
+/*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', 'ng', '10^6', 'Math.pow(10, 6)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', 'µg', '10^3', 'Math.pow(10, 3)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', 'mg', '1', '1')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', 'g', '10^-3', 'Math.pow(10, -3)')`);
@@ -762,9 +759,9 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', '
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', 'kg', '10^-3 / 1000', 'Math.pow(10, -3) / 1000')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', 's', '10^-3 / 6350,29', 'Math.pow(10, -3) / 6350.29')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('mg', 't', '10^-3 / 1000000', 'Math.pow(10, -3) / 1000000')`);
+*/
 
-
-db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 'ng', '10^9', 'Math.pow(10, 9)')`);
+/*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 'ng', '10^9', 'Math.pow(10, 9)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 'µg', '10^6', 'Math.pow(10, 6)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 'mg', '10^3', 'Math.pow(10, 3)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 'g', '1', '1')`);
@@ -773,9 +770,9 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 'p
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 'kg', '1 / 1000', '1 / 1000')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 's', '1 / 6350,29', '1 / 6350.29')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('g', 't', '1 / 1000000', '1 / 1000000')`);
+*/
 
-
-db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 'ng', '28,3495 * 10^9', '28.3495 * Math.pow(10, 9)')`);
+/*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 'ng', '28,3495 * 10^9', '28.3495 * Math.pow(10, 9)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 'µg', '28,3495 * 10^6', '28.3495 * Math.pow(10, 6)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 'mg', '28,3495 * 10^3', '28.3495 * Math.pow(10, 3)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 'g', '28,3495', '28.3495')`);
@@ -784,9 +781,9 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 'p
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 'kg', '28,3495 / 1000', '28.3495 / 1000')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 's', '28,3495 / 6350,29', '28.3495 / 6350.29')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('u', 't', '28,3495 / 1000000', '28.3495 / 1000000')`);
+*/
 
-
-db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 'ng', '453,592 * 10^9', '453.592 * Math.pow(10, 9)')`);
+/*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 'ng', '453,592 * 10^9', '453.592 * Math.pow(10, 9)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 'µg', '453,592 * 10^6', '453.592 * Math.pow(10, 6)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 'mg', '453,592 * 10^3', '453.592 * Math.pow(10, 3)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 'g', '453,592', '453.592')`);
@@ -795,9 +792,9 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 'p
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 'kg', '453,592 / 1000', '453.592 / 1000')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 's', '453,592 / 6350,29', '453.592 / 6350.29')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('p', 't', '453,592 / 1000000', '453.592 / 1000000')`);
+*/
 
-
-db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', 'ng', '10^12', 'Math.pow(10, 12)')`);
+/*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', 'ng', '10^12', 'Math.pow(10, 12)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', 'µg', '10^9', 'Math.pow(10, 9)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', 'mg', '10^6', 'Math.pow(10, 6)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', 'g', '10^3', 'Math.pow(10, 3)')`);
@@ -806,9 +803,9 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', '
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', 'kg', '1', '1')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', 's', '10^3 / 6350,29', 'Math.pow(10, 3) / 6350.29')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('kg', 't', '10^3 / 1000000', 'Math.pow(10, 3) / 1000000')`);
+*/
 
-
-db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 'ng', '6350,29 * 10^9', '6350.29 * Math.pow(10, 9)')`);
+/*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 'ng', '6350,29 * 10^9', '6350.29 * Math.pow(10, 9)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 'µg', '6350,29 * 10^6', '6350.29 * Math.pow(10, 6)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 'mg', '6350,29 * 10^3', '6350.29 * Math.pow(10, 3)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 'g', '6350,29', '6350.29')`);
@@ -817,9 +814,9 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 'p
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 'kg', '6350,29 / 1000', '6350.29 / 1000')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 's', '1', '1')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('s', 't', '6350,29 / 1000000', '6350.29 / 1000000')`);
+*/
 
-
-db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('t', 'ng', '10^15', 'Math.pow(10, 15)')`);
+/*db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('t', 'ng', '10^15', 'Math.pow(10, 15)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('t', 'µg', '10^12', 'Math.pow(10, 12)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('t', 'mg', '10^9', 'Math.pow(10, 9)')`);
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('t', 'g', '10^6', 'Math.pow(10, 6)')`);
