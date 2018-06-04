@@ -127,20 +127,20 @@ app.post('/onZeit', (req, res) => {
 	const sel1 = req.body.Temp1;
 	const sel2 = req.body.Temp2;
 	const number = req.body.number;
-	//var rechenFormel;
-	//var calculation;
-	//var mal = "*";
+	var rechenFormel;
+	var calculation;
+	var mal = "*";
 	var ergebnis;
 	
-	const sql = `SELECT formel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'` // const sql = `SELECT formel,rechenFormel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'`
+	const sql = `SELECT formel,rechenFormel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
 			console.log(error.message);
 		}
 		else {
-			//rechenFormel = row.rechenFormel;
-			//calculation = number.concat(mal, rechenFormel);			
-			//ergebnis = eval(calculation.toString());
+			rechenFormel = row.rechenFormel;
+			calculation = number.concat(mal, rechenFormel);			
+			ergebnis = eval(calculation.toString());
 			console.log(ergebnis);
 			res.render('zeit', {
 				'formel': row.formel,
@@ -231,108 +231,108 @@ app.post('/onMasse', (req, res) => {
 	});
 });
 
-//db.run('CREATE TABLE temperaturFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL, rechenFormel TEXT NOT NULL)');
-/*db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('C', 'C', 'x * 1', '* Math.pow(1,0)')`);
+// db.run('CREATE TABLE temperaturFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL, rechenFormel TEXT NOT NULL)');
+/* db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('C', 'C', 'x * 1', '* 1')`);
 db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('C', 'F', 'x * 1.8 + 32', '* 1.8 + 32')`);
 db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('C', 'K', 'x + 273.15', '+ 273.15')`);
-db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'F', 'x * 1', '1')`);
-db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'C', '(x - 32) / 1.8', ' - 32 / 1.8')`);
-db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'K', '(x + 459.67) / 1.8', '+459.67 / 1.8')`);
-db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('K', 'K', 'x * 1', '1')`);
-db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('K', 'C', 'x - 273.15', '-273.15')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'F', 'x * 1', '* 1')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'C', '(x - 32) / 1.8', '- 32 / 1.8')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('F', 'K', '(x + 459.67) / 1.8', '+ 459.67 / 1.8')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('K', 'K', 'x * 1', '* 1')`);
+db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('K', 'C', 'x - 273.15', '- 273.15')`);
 db.run(`INSERT INTO temperaturFormel (von, nach, formel, rechenFormel) VALUES ('K', 'F', 'x * 1.8 - 459.67', '* 1.8 - 459.67')`);
 */
 
-// db.run('CREATE TABLE zeitFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL)');
-/* db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'ns', '1')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'µs', '10^-3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'ms', '10^-6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 's', '10^-9')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'min', '10^-9 / 60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'h', '10^-9 / 3600')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'd', '10^-9 / (24*3600)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'w', '10^-9 / (7*24*3600)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ns', 'j', '10^-9 / (365*7*24*3600)')`);
+// db.run('CREATE TABLE zeitFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL, rechenFormel TEXT NOT NULL)');
+/* db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 'ns', '1', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 'µs', '10^-3', 'Math.pow(10, -3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 'ms', '10^-6', 'Math.pow(10, -6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 's', '10^-9', 'Math.pow(10, -9)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 'min', '10^-9 / 60', 'Math.pow(10, -9) / 60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 'h', '10^-9 / 3600', 'Math.pow(10, -9) / 3600')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 'd', '10^-9 / (24*3600)', 'Math.pow(10, -9) / (24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 'w', '10^-9 / (7*24*3600)', 'Math.pow(10, -9) / (7*24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ns', 'j', '10^-9 / (365*7*24*3600)', 'Math.pow(10, -9) / (365*7*24*3600)')`);
 
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 'ns', '10^3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 'µs', '1')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 'ms', '10^-3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 's', '10^-6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 'min', '10^-6 / 60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 'h', '10^-6 / 3600')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 'd', '10^-6 / (24*3600)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 'w', '10^-6 / (7*24*3600)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('µs', 'j', '10^-6 / (365*7*24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 'ns', '10^3', 'Math.pow(10, 3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 'µs', '1', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 'ms', '10^-3', 'Math.pow(10, -3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 's', '10^-6', 'Math.pow(10, -6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 'min', '10^-6 / 60', 'Math.pow(10, -6) / 60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 'h', '10^-6 / 3600', 'Math.pow(10, -6) / 3600')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 'd', '10^-6 / (24*3600)', 'Math.pow(10, -6) / (24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 'w', '10^-6 / (7*24*3600)', 'Math.pow(10, -6) / (7*24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('µs', 'j', '10^-6 / (365*7*24*3600)', 'Math.pow(10, -6) / (365*7*24*3600)')`);
 
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 'ns', '10^6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 'µs', '10^3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 'ms', '1')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 's', '10^-3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 'min', '10^-3 / 60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 'h', '10^-3 / 3600')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 'd', '10^-3 / (24*3600)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 'w', '10^-3 / (7*24*3600)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('ms', 'j', '10^-3 / (365*7*24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 'ns', '10^6', 'Math.pow(10, 6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 'µs', '10^3', 'Math.pow(10, 3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 'ms', '1', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 's', '10^-3', 'Math.pow(10, -3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 'min', '10^-3 / 60', 'Math.pow(10, -3) / 60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 'h', '10^-3 / 3600', 'Math.pow(10, -3) / 3600')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 'd', '10^-3 / (24*3600)', 'Math.pow(10, -3) / (24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 'w', '10^-3 / (7*24*3600)', 'Math.pow(10, -3) / (7*24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('ms', 'j', '10^-3 / (365*7*24*3600)', 'Math.pow(10, -3) / (365*7*24*3600)')`);
 
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 'ns', '10^9')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 'µs', '10^6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 'ms', '10^3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 's', '1')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 'min', '1 / 60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 'h', '1 / 3600')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 'd', '1 / (24*3600)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 'w', '1 / (7*24*3600)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('s', 'j', '1 / (365*7*24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 'ns', '10^9', 'Math.pow(10, 9)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 'µs', '10^6', 'Math.pow(10, 6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 'ms', '10^3', 'Math.pow(10, 3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 's', '1', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 'min', '1 / 60', '1 / 60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 'h', '1 / 3600', '1 / 3600')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 'd', '1 / (24*3600)', '1 / (24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 'w', '1 / (7*24*3600)', '1 / (7*24*3600)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('s', 'j', '1 / (365*7*24*3600)', '1 / (365*7*24*3600)')`);
 
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 'ns', '60 * 10^9')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 'µs', '60 * 10^6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 'ms', '60 * 10^3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 's', '60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 'min', '1')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 'h', '1 / 60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 'd', '1 / (24*60)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 'w', '1 / (7*24*60)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('min', 'j', '1 / (365*24*60)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 'ns', '60 * 10^9', '60 * Math.pow(10, 9)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 'µs', '60 * 10^6', '60 * Math.pow(10, 6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 'ms', '60 * 10^3', '60 * Math.pow(10, 3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 's', '60', '60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 'min', '1', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 'h', '1 / 60', '1 / 60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 'd', '1 / (24*60)', '1 / (24*60)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 'w', '1 / (7*24*60)', '1 / (7*24*60)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('min', 'j', '1 / (365*24*60)', '1 / (365*24*60)')`);
 
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 'ns', '3600 * 10^9')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 'µs', '3600 * 10^6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 'ms', '3600 * 10^3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 's', '3600')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 'min', '60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 'h', '1')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 'd', '1 / 24')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 'w', '1 / (7*24)')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('h', 'j', '1 / (365*24)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 'ns', '3600 * 10^9', '3600 * Math.pow(10, 9)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 'µs', '3600 * 10^6', '3600 * Math.pow(10, 6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 'ms', '3600 * 10^3', '3600 * Math.pow(10, 3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 's', '3600', '3600')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 'min', '60', '60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 'h', '1', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 'd', '1 / 24', '1 / 24')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 'w', '1 / (7*24)', '1 / (7*24)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('h', 'j', '1 / (365*24)', '1 / (365*24)')`);
 
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 'ns', '24*3600*10^9')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 'µs', '24*3600*10^6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 'ms', '24*3600*10^3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 's', '24*3600')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 'min', '24*60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 'h', '24')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 'd', '1')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 'w', '1 / 7')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('d', 'j', '1 / 365')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 'ns', '24*3600*10^9', '24*3600*Math.pow(10, 9)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 'µs', '24*3600*10^6', '24*3600*Math.pow(10, 6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 'ms', '24*3600*10^3', '24*3600*Math.pow(10, 3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 's', '24*3600', '24*3600')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 'min', '24*60', '24*60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 'h', '24', '24')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 'd', '1', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 'w', '1 / 7', '1 / 7')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('d', 'j', '1 / 365', '1 / 365')`);
 
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 'ns', '7*24*3600*10^9')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 'µs', '7*24*3600*10^6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 'ms', '7*24*3600*10^3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 's', '7*24*3600')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 'min', '7*24*60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 'h', '7*24')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 'd', '7')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 'w', '1')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('w', 'j', '1 / 52,1429')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 'ns', '7*24*3600*10^9', '7*24*3600*Math.pow(10, 9)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 'µs', '7*24*3600*10^6', '7*24*3600*Math.pow(10, 6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 'ms', '7*24*3600*10^3', '7*24*3600*Math.pow(10, 3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 's', '7*24*3600', '7*24*3600')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 'min', '7*24*60', '7*24*60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 'h', '7*24', '7*24')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 'd', '7', '7')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 'w', '1', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('w', 'j', '1 / 52,1429', '1 / 52.1429')`);
 
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 'ns', '365*24*3600*10^9')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 'µs', '365*24*3600*10^6')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 'ms', '365*24*3600*10^3')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 's', '365*24*3600')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 'min', '365*24*60')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 'h', '365*24')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 'd', '365')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 'w', '52,1429')`);
-db.run(`INSERT INTO zeitFormel(von, nach, formel) VALUES ('j', 'j', '1')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'ns', '365*24*3600*10^9', '365*24*3600*Math.pow(10, 9)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'µs', '365*24*3600*10^6', '365*24*3600*Math.pow(10, 6)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'ms', '365*24*3600*10^3', '365*24*3600*Math.pow(10, 3)')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 's', '365*24*3600', '365*24*3600')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'min', '365*24*60', '365*24*60')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'h', '365*24', '365*24')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'd', '365', '365')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'w', '52,1429', '52.1429')`);
+db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'j', '1', '1')`);
 */
 
 
