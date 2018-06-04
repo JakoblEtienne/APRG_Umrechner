@@ -16,3 +16,4 @@
 31.05.2018: Versucht Berechnung zu programmieren                      			       Jakob l'Etienne    120 Min
 03.06.2018: Berechnung fertig programmiert (Temp.) + Einrichtung für den Rest (DB fehlen noch) Jakob l'Etienne     90 Min 
 04.06.2018: Rechenformeln für Zeit hinzugefügt, Berechnungen funktionieren                     Fabian Hensel       30 Min
+04.06.2018: Rechenformeln für Masse, Volumen, Flächen hinzugefügt (Berech. funktionieren)      Jakob l'Etienne	  100 Min
