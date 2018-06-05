@@ -48,17 +48,14 @@
 			<input type="text" name="number" autofocus placeholder="Eingabe">
 			
 		<select name="Temp1">
-			<option style="background-color: yellow"><% if (sel1 == "mm³") {%>Kubikmillimeter<%} else if (sel1 == "cm³") {%>Kubikcentimeter<%} else if (sel1 == "ml") {%>Milliliter<%} 
-			else if (sel1 == "dm³") {%>Kubikdezimeter<%} else if (sel1 == "l") {%>Liter<%} else if (sel1 == "m³") {%>Kubikmeter<%}
-			else if (sel1 == "km³") {%>Kubikkilometer<%} else if (sel1 == "mi³") {%>Kubikmeile<%}%></option>
-			<option value="mm³">Kubikmillimeter</option>
-			<option value="cm³">Kubikcentimeter</option>
-			<option value="ml">Milliliter</option>
-			<option value="dm³">Kubikdezimeter</option>
-			<option value="l">Liter</option>
-			<option value="m³">Kubikmeter</option>
-			<option value="km³">Kubikkilometer</option>
-			<option value="mi³">Kubikmeile</option>
+			<option value="mm³" <% if (sel1 == "mm³") {%>selected<%}%>>Kubikmillimeter</option>
+			<option value="cm³" <% if (sel1 == "cm³") {%>selected<%}%>>Kubikcentimeter</option>
+			<option value="ml" <% if (sel1 == "ml") {%>selected<%}%>>Milliliter</option>
+			<option value="dm³" <% if (sel1 == "dm³") {%>selected<%}%>>Kubikdezimeter</option>
+			<option value="l" <% if (sel1 == "l") {%>selected<%}%>>Liter</option>
+			<option value="m³" <% if (sel1 == "m³") {%>selected<%}%>>Kubikmeter</option>
+			<option value="km³" <% if (sel1 == "km³") {%>selected<%}%>>Kubikkilometer</option>
+			<option value="mi³" <% if (sel1 == "mi³") {%>selected<%}%>>Kubikmeile</option>
 		</select>
 		
 		===>
@@ -68,17 +65,14 @@
 		</div>
 		
 		<select name="Temp2">
-			<option style="background-color: yellow"><% if (sel2 == "mm³") {%>Kubikmillimeter<%} else if (sel2 == "cm³") {%>Kubikcentimeter<%} else if (sel2 == "ml") {%>Milliliter<%} 
-			else if (sel2 == "dm³") {%>Kubikdezimeter<%} else if (sel2 == "l") {%>Liter<%} else if (sel2 == "m³") {%>Kubikmeter<%}
-			else if (sel2 == "km³") {%>Kubikkilometer<%} else if (sel2 == "mi³") {%>Kubikmeile<%}%></option>
-			<option value="mm³">Kubikmillimeter</option>
-			<option value="cm³">Kubikcentimeter</option>
-			<option value="ml">Milliliter</option>
-			<option value="dm³">Kubikdezimeter</option>
-			<option value="l">Liter</option>
-			<option value="m³">Kubikmeter</option>
-			<option value="km³">Kubikkilometer</option>
-			<option value="mi³">Kubikmeile</option>
+			<option value="mm³" <% if (sel2 == "mm³") {%>selected<%}%>>Kubikmillimeter</option>
+			<option value="cm³" <% if (sel2 == "cm³") {%>selected<%}%>>Kubikcentimeter</option>
+			<option value="ml" <% if (sel2 == "ml") {%>selected<%}%>>Milliliter</option>
+			<option value="dm³" <% if (sel2 == "dm³") {%>selected<%}%>>Kubikdezimeter</option>
+			<option value="l" <% if (sel2 == "l") {%>selected<%}%>>Liter</option>
+			<option value="m³" <% if (sel2 == "m³") {%>selected<%}%>>Kubikmeter</option>
+			<option value="km³" <% if (sel2 == "km³") {%>selected<%}%>>Kubikkilometer</option>
+			<option value="mi³" <% if (sel2 == "mi³") {%>selected<%}%>>Kubikmeile</option>
 		</select>
 		
 		<br><button type="submit" class="buttonVolumen">umrechnen</button>

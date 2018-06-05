@@ -48,18 +48,15 @@
 			<input type="text" name="number" autofocus placeholder="Eingabe">
 			
 		<select name="Temp1">
-			<option style="background-color: yellow"><% if (sel1 == "ng") {%>Nanogramm<%} else if (sel1 == "µg") {%>Mikrogramm<%} else if (sel1 == "mg") {%>Milligramm<%} 
-			else if (sel1 == "g") {%>Gramm<%} else if (sel1 == "u") {%>Unze<%} else if (sel1 == "p") {%>Pfund<%}
-			else if (sel1 == "kg") {%>Kilogramm<%} else if (sel1 == "s") {%>Stone<%} else if (sel1 == "t") {%>Tonne<%}%></option>
-			<option value="ng">Nanogramm</option>
-			<option value="µg">Mikrogramm</option>
-			<option value="mg">Milligramm</option>
-			<option value="g">Gramm</option>
-			<option value="u">Unze</option>
-			<option value="p">Pfund</option>
-			<option value="kg">Kilogramm</option>
-			<option value="s">Stone</option>
-			<option value="t">Tonne</option>
+			<option value="ng" <% if (sel1 == "ng") {%>selected<%}%>>Nanogramm</option>
+			<option value="µg" <% if (sel1 == "µg") {%>selected<%}%>>Mikrogramm</option>
+			<option value="mg" <% if (sel1 == "mg") {%>selected<%}%>>Milligramm</option>
+			<option value="g" <% if (sel1 == "g") {%>selected<%}%>>Gramm</option>
+			<option value="u" <% if (sel1 == "u") {%>selected<%}%>>Unze</option>
+			<option value="p" <% if (sel1 == "p") {%>selected<%}%>>Pfund</option>
+			<option value="kg" <% if (sel1 == "kg") {%>selected<%}%>>Kilogramm</option>
+			<option value="s" <% if (sel1 == "s") {%>selected<%}%>>Stone</option>
+			<option value="t" <% if (sel1 == "t") {%>selected<%}%>>Tonne</option>
 		</select>
 		
 		===>
@@ -69,18 +66,15 @@
 		</div>
 		
 		<select name="Temp2">
-			<option style="background-color: yellow"><% if (sel2 == "ng") {%>Nanogramm<%} else if (sel2 == "µg") {%>Mikrogramm<%} else if (sel2 == "mg") {%>Milligramm<%} 
-			else if (sel2 == "g") {%>Gramm<%} else if (sel2 == "u") {%>Unze<%} else if (sel2 == "p") {%>Pfund<%}
-			else if (sel2 == "kg") {%>Kilogramm<%} else if (sel2 == "s") {%>Stone<%} else if (sel2 == "t") {%>Tonne<%}%></option>
-			<option value="ng">Nanogramm</option>
-			<option value="µg">Mikrogramm</option>
-			<option value="mg">Milligramm</option>
-			<option value="g">Gramm</option>
-			<option value="u">Unze</option>
-			<option value="p">Pfund</option>
-			<option value="kg">Kilogramm</option>
-			<option value="s">Stone</option>
-			<option value="t">Tonne</option>
+			<option value="ng" <% if (sel2 == "ng") {%>selected<%}%>>Nanogramm</option>
+			<option value="µg" <% if (sel2 == "µg") {%>selected<%}%>>Mikrogramm</option>
+			<option value="mg" <% if (sel2 == "mg") {%>selected<%}%>>Milligramm</option>
+			<option value="g" <% if (sel2 == "g") {%>selected<%}%>>Gramm</option>
+			<option value="u" <% if (sel2 == "u") {%>selected<%}%>>Unze</option>
+			<option value="p" <% if (sel2 == "p") {%>selected<%}%>>Pfund</option>
+			<option value="kg" <% if (sel2 == "kg") {%>selected<%}%>>Kilogramm</option>
+			<option value="s" <% if (sel2 == "s") {%>selected<%}%>>Stone</option>
+			<option value="t" <% if (sel2 == "t") {%>selected<%}%>>Tonne</option>
 		</select>
 		
 		<br><button type="submit" class="buttonMasse">umrechnen</button>

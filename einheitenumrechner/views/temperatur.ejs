@@ -48,10 +48,9 @@
 			<input type="text" name="number" autofocus placeholder="Eingabe">
 			
 		<select name="Temp1">
-			<option style="background-color: yellow"><% if (sel1 == "C") {%>Celsius<%} else if (sel1 == "F") {%>Fahrenheit<%} else if (sel1 == "K") {%>Kelvin<%}%></option>
-			<option value="C">Celsius</option>
-			<option value="F">Fahrenheit</option>
-			<option value="K">Kelvin</option>
+			<option value="C" <% if (sel1 == "C") {%>selected<%}%>>Celsius</option> 
+			<option value="F" <% if (sel1 == "F") {%>selected<%}%>>Fahrenheit</option>
+			<option value="K" <% if (sel1 == "K") {%>selected<%}%>>Kelvin</option>
 		</select>
 		
 		===>
@@ -61,10 +60,9 @@
 		</div>
 		
 		<select name="Temp2">
-			<option style="background-color: yellow"><% if (sel2 == "C") {%>Celsius<%} else if (sel2 == "F") {%>Fahrenheit<%} else if (sel2 == "K") {%>Kelvin<%}%></option>
-			<option value="C">Celsius</option>
-			<option value="F">Fahrenheit</option>
-			<option value="K">Kelvin</option>
+			<option value="C" <% if (sel2 == "C") {%>selected<%}%>>Celsius</option>
+			<option value="F" <% if (sel2 == "F") {%>selected<%}%>>Fahrenheit</option>
+			<option value="K" <% if (sel2 == "K") {%>selected<%}%>>Kelvin</option>
 		</select>
 		
 		<br><button type="submit" class="buttonTemp">umrechnen</button>

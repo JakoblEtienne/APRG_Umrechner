@@ -48,17 +48,14 @@
 			<input type="text" name="number" autofocus placeholder="Eingabe">
 			
 		<select name="Temp1">
-			<option style="background-color: yellow"><% if (sel1 == "mm²") {%>Quadratmillimeter<%} else if (sel1 == "cm²") {%>Quadratcentimeter<%} else if (sel1 == "dm²") {%>Quadratdezimeter<%} 
-			else if (sel1 == "m²") {%>Quadratmeter<%} else if (sel1 == "ar") {%>Acre<%} else if (sel1 == "he") {%>Hektar<%}
-			else if (sel1 == "km²") {%>Quadratkilometer<%} else if (sel1 == "mi²") {%>Quadratmeile<%}%></option>
-			<option value="mm²">Quadratmillimeter</option>
-			<option value="cm²">Quadratcentimeter</option>
-			<option value="dm²">Quadratdezimeter</option>
-			<option value="m²">Quadratmeter</option>
-			<option value="ar">Acre</option>
-			<option value="he">Hektar</option>
-			<option value="km²">Quadratkilometer</option>
-			<option value="mi²">Quadratmeile</option>
+			<option value="mm²" <% if (sel1 == "mm²") {%>selected<%}%>>Quadratmillimeter</option>
+			<option value="cm²" <% if (sel1 == "cm²") {%>selected<%}%>>Quadratcentimeter</option>
+			<option value="dm²" <% if (sel1 == "dm²") {%>selected<%}%>>Quadratdezimeter</option>
+			<option value="m²" <% if (sel1 == "m²") {%>selected<%}%>>Quadratmeter</option>
+			<option value="ar" <% if (sel1 == "ar") {%>selected<%}%>>Acre</option>
+			<option value="he" <% if (sel1 == "he") {%>selected<%}%>>Hektar</option>
+			<option value="km²" <% if (sel1 == "km²") {%>selected<%}%>>Quadratkilometer</option>
+			<option value="mi²" <% if (sel1 == "mi²") {%>selected<%}%>>Quadratmeile</option>
 		</select>
 		
 		===>
@@ -68,17 +65,14 @@
 		</div>
 		
 		<select name="Temp2">
-			<option style="background-color: yellow"><% if (sel2 == "mm²") {%>Quadratmillimeter<%} else if (sel2 == "cm²") {%>Quadratcentimeter<%} else if (sel2 == "dm²") {%>Quadratdezimeter<%} 
-			else if (sel2 == "m²") {%>Quadratmeter<%} else if (sel2 == "ar") {%>Acre<%} else if (sel2 == "he") {%>Hektar<%}
-			else if (sel2 == "km²") {%>Quadratkilometer<%} else if (sel2 == "mi²") {%>Quadratmeile<%}%></option>
-			<option value="mm²">Quadratmillimeter</option>
-			<option value="cm²">Quadratcentimeter</option>
-			<option value="dm²">Quadratdezimeter</option>
-			<option value="m²">Quadratmeter</option>
-			<option value="ar">Acre</option>
-			<option value="he">Hektar</option>
-			<option value="km²">Quadratkilometer</option>
-			<option value="mi²">Quadratmeile</option>
+			<option value="mm²" <% if (sel2 == "mm²") {%>selected<%}%>>Quadratmillimeter</option>
+			<option value="cm²" <% if (sel2 == "cm²") {%>selected<%}%>>Quadratcentimeter</option>
+			<option value="dm²" <% if (sel2 == "dm²") {%>selected<%}%>>Quadratdezimeter</option>
+			<option value="m²" <% if (sel2 == "m²") {%>selected<%}%>>Quadratmeter</option>
+			<option value="ar" <% if (sel2 == "ar") {%>selected<%}%>>Acre</option>
+			<option value="he" <% if (sel2 == "he") {%>selected<%}%>>Hektar</option>
+			<option value="km²" <% if (sel2 == "km²") {%>selected<%}%>>Quadratkilometer</option>
+			<option value="mi²" <% if (sel2 == "mi²") {%>selected<%}%>>Quadratmeile</option>
 		</select>
 		
 		<br><button type="submit" class="buttonFläche">umrechnen</button>

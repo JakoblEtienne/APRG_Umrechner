@@ -48,18 +48,15 @@
 			<input type="text" name="number" autofocus placeholder="Eingabe">
 			
 		<select name="Temp1">
-			<option style="background-color: yellow"><% if (sel1 == "ns") {%>Nanosekunde<%} else if (sel1 == "µs") {%>Mikrosekunde<%} else if (sel1 == "ms") {%>Millisekunde<%} 
-			else if (sel1 == "s") {%>Sekunde<%} else if (sel1 == "min") {%>Minute<%} else if (sel1 == "h") {%>Stunde<%}
-			else if (sel1 == "d") {%>Tag<%} else if (sel1 == "w") {%>Woche<%} else if (sel1 == "j") {%>Jahr<%}%></option>
-			<option value="ns">Nanosekunde</option>
-			<option value="µs">Mikrosekunde</option>
-			<option value="ms">Millisekunde</option>
-			<option value="s">Sekunde</option>
-			<option value="min">Minute</option>
-			<option value="h">Stunde</option>
-			<option value="d">Tag</option>
-			<option value="w">Woche</option>
-			<option value="j">Jahr</option>
+			<option value="ns" <% if (sel1 == "ns") {%>selected<%}%>>Nanosekunde</option>
+			<option value="µs" <% if (sel1 == "µs") {%>selected<%}%>>Mikrosekunde</option>
+			<option value="ms" <% if (sel1 == "ms") {%>selected<%}%>>Millisekunde</option>
+			<option value="s" <% if (sel1 == "s") {%>selected<%}%>>Sekunde</option>
+			<option value="min" <% if (sel1 == "min") {%>selected<%}%>>Minute</option>
+			<option value="h" <% if (sel1 == "h") {%>selected<%}%>>Stunde</option>
+			<option value="d" <% if (sel1 == "d") {%>selected<%}%>>Tag</option>
+			<option value="w" <% if (sel1 == "w") {%>selected<%}%>>Woche</option>
+			<option value="j" <% if (sel1 == "j") {%>selected<%}%>>Jahr</option>
 		</select>
 		
 		===>
@@ -69,18 +66,15 @@
 		</div>
 		
 		<select name="Temp2">
-			<option style="background-color: yellow"><% if (sel2 == "ns") {%>Nanosekunde<%} else if (sel2 == "µs") {%>Mikrosekunde<%} else if (sel2 == "ms") {%>Millisekunde<%} 
-			else if (sel2 == "s") {%>Sekunde<%} else if (sel2 == "min") {%>Minute<%} else if (sel2 == "h") {%>Stunde<%}
-			else if (sel2 == "d") {%>Tag<%} else if (sel2 == "w") {%>Woche<%} else if (sel2 == "j") {%>Jahr<%}%></option>
-			<option value="ns">Nanosekunde</option>
-			<option value="µs">Mikrosekunde</option>
-			<option value="ms">Millisekunde</option>
-			<option value="s">Sekunde</option>
-			<option value="min">Minute</option>
-			<option value="h">Stunde</option>
-			<option value="d">Tag</option>
-			<option value="w">Woche</option>
-			<option value="j">Jahr</option>
+			<option value="ns" <% if (sel2 == "ns") {%>selected<%}%>>Nanosekunde</option>
+			<option value="µs" <% if (sel2 == "µs") {%>selected<%}%>>Mikrosekunde</option>
+			<option value="ms" <% if (sel2 == "ms") {%>selected<%}%>>Millisekunde</option>
+			<option value="s" <% if (sel2 == "s") {%>selected<%}%>>Sekunde</option>
+			<option value="min" <% if (sel2 == "min") {%>selected<%}%>>Minute</option>
+			<option value="h" <% if (sel2 == "h") {%>selected<%}%>>Stunde</option>
+			<option value="d" <% if (sel2 == "d") {%>selected<%}%>>Tag</option>
+			<option value="w" <% if (sel2 == "w") {%>selected<%}%>>Woche</option>
+			<option value="j" <% if (sel2 == "j") {%>selected<%}%>>Jahr</option>
 		</select>
 		
 		<br><button type="submit" class="buttonZeit">umrechnen</button>
