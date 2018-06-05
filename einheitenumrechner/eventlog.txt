@@ -7,7 +7,7 @@
 12.05.2018: Restliche Formeln erstellt (Länge, Fläche, Volumen, Masse)			       Fabian Hensel       90 Min
 12.05.2018: Layout von Masse, Fläche, Volumen erstellt und Buttons angepasst                   Fabian Hensel       10 Min
 16.05.2018: Farbänderung erstellt + Verschönerungen                                            Fabian Hensel       60 Min
-16.05.2018: Weitere Farben hinzugefügt                                                         Fabian Hensel        5 Min
+16.05.2018: Weitere Farben hinzugefügt                                                         Fabian Hensel       15 Min
 23.05.2018: Formel Tabelle in Datenbank erstellt + Anzeigen der Formeln                        Jakob, Fabian      150 Min
 24.05.2018: Formel Tabelle für Zeit erstellt + Formeln hinzugefügt                             Fabian Hensel       45 Min
 24.05.2018: Restliche Farbänderungen eingefügt 						       Jakob l'Etienne     20 Min 
@@ -19,6 +19,8 @@
 04.06.2018: Rechenformeln für Masse, Volumen, Flächen hinzugefügt (Berech. funktionieren)      Jakob l'Etienne	  100 Min
 04.06.2018: Rechenformeln für Längen hinzugefügt, Buttons angepasst                            Fabian Hensel       80 Min
 05.06.2018: Fakten hinzugefügt + Anzeige auf allen Seiten				       Jakob l'Etienne     60 Min
-
 05.06.2018: Neu laden der Drop-Down Werte verhindert                                           Fabian Hensel      120 Min
+
+											       Gesamtzeit:       1500 Min
+														   25 Std
 

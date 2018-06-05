@@ -29,13 +29,6 @@ app.listen(port, function() {
 
 //Seiten-Links
 app.get('/laengen', (req, res) => {
-<<<<<<< HEAD
-	res.render('laengen', {
-		'formel': '',
-		'ergebnis': '',
-		'sel1': '',
-		'sel2': ''
-=======
 	var art = 'laengen'
 	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
 		if (error) {
@@ -45,21 +38,15 @@ app.get('/laengen', (req, res) => {
 			res.render('laengen', {
 			'formel': '',
 			'ergebnis': '',
-			'spruch': row.spruch
+			'spruch': row.spruch,
+			'sel1': '',
+			'sel2': ''
 			});
 		}
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 	});
 });
 
-app.get('/flaechen', (req, res) => {
-<<<<<<< HEAD
-	res.render('flaechen', {
-		'formel': '',
-		'ergebnis': '',
-		'sel1': '',
-		'sel2': ''
-=======
+app.get('/flaechen', (req, res) => {	
 	var art = 'flaechen'
 	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
 		if (error) {
@@ -69,21 +56,15 @@ app.get('/flaechen', (req, res) => {
 			res.render('flaechen', {
 			'formel': '',
 			'ergebnis': '',
-			'spruch': row.spruch
+			'spruch': row.spruch,
+			'sel1': '',
+			'sel2': ''
 			});
 		}
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 	});
 });
 
 app.get('/volumen', (req, res) => {
-<<<<<<< HEAD
-	res.render('volumen', {
-		'formel': '',
-		'ergebnis': '',
-		'sel1': '',
-		'sel2': ''
-=======
 	var art = 'volumen'
 	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
 		if (error) {
@@ -93,29 +74,15 @@ app.get('/volumen', (req, res) => {
 			res.render('volumen', {
 			'formel': '',
 			'ergebnis': '',
-			'spruch': row.spruch
+			'spruch': row.spruch,
+			'sel1': '',
+			'sel2': ''
 			});
 		}
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 	});
 });
 
 app.get('/masse', (req, res) => {
-<<<<<<< HEAD
-	res.render('masse', {
-		'formel': '',
-		'ergebnis': '',
-		'sel1': '',
-		'sel2': ''
-	});
-});
-app.get('/zeit', (req, res) => {
-	res.render('zeit', {
-		'formel': '',
-		'ergebnis': '',
-		'sel1': '',
-		'sel2': ''
-=======
 	var art = 'masse'
 	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
 		if (error) {
@@ -125,11 +92,14 @@ app.get('/zeit', (req, res) => {
 			res.render('masse', {
 			'formel': '',
 			'ergebnis': '',
-			'spruch': row.spruch
+			'spruch': row.spruch,
+			'sel1': '',
+			'sel2': ''
 			});
 		}
 	});
 });
+
 app.get('/zeit', (req, res) => {
 	var art = 'zeit'
 	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
@@ -140,21 +110,15 @@ app.get('/zeit', (req, res) => {
 			res.render('zeit', {
 			'formel': '',
 			'ergebnis': '',
-			'spruch': row.spruch
+			'spruch': row.spruch,
+			'sel1': '',
+			'sel2': ''
 			});
 		}
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 	});
 });
 
 app.get('/temperatur', (req, res) => {
-<<<<<<< HEAD
-	res.render('temperatur', {
-		'formel': '',
-		'ergebnis': '',
-		'sel1': '',
-		'sel2': ''
-=======
 	var art = 'temperatur'
 	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
 		if (error) {
@@ -164,10 +128,11 @@ app.get('/temperatur', (req, res) => {
 			res.render('temperatur', {
 			'formel': '',
 			'ergebnis': '',
-			'spruch': row.spruch
+			'spruch': row.spruch,
+			'sel1': '',
+			'sel2': ''
 			});
 		}
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 	});
 });
 
@@ -203,12 +168,9 @@ app.post('/onLaengen', (req, res) => {
 			res.render('laengen', {
 				'formel': row.formel,
 				'ergebnis': ergebnis,
-<<<<<<< HEAD
 				'sel1': sel1,
-				'sel2': sel2
-=======
+				'sel2': sel2,
 				'spruch': spruch
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 			});
 		}
 	});
@@ -245,12 +207,9 @@ app.post('/onTemperatur', (req, res) => {
 			res.render('temperatur', {
 				'formel': row.formel,
 				'ergebnis': ergebnis,
-<<<<<<< HEAD
 				'sel1': sel1,
-				'sel2': sel2
-=======
+				'sel2': sel2,
 				'spruch': spruch
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 			});
 		}
 	});
@@ -289,12 +248,9 @@ app.post('/onZeit', (req, res) => {
 			res.render('zeit', {
 				'formel': row.formel,
 				'ergebnis': ergebnis,
-<<<<<<< HEAD
 				'sel1': sel1,
-				'sel2': sel2
-=======
+				'sel2': sel2,
 				'spruch': spruch
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 			});
 		}
 	});
@@ -332,12 +288,9 @@ app.post('/onFlaechen', (req, res) => {
 			res.render('flaechen', {
 				'formel': row.formel,
 				'ergebnis': ergebnis,
-<<<<<<< HEAD
 				'sel1': sel1,
-				'sel2': sel2
-=======
+				'sel2': sel2,
 				'spruch': spruch
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 			});
 		}
 	});
@@ -375,12 +328,9 @@ app.post('/onVolumen', (req, res) => {
 			res.render('volumen', {
 				'formel': row.formel,
 				'ergebnis': ergebnis,
-<<<<<<< HEAD
 				'sel1': sel1,
-				'sel2': sel2
-=======
+				'sel2': sel2,
 				'spruch': spruch
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 			});
 		}
 	});
@@ -418,12 +368,9 @@ app.post('/onMasse', (req, res) => {
 			res.render('masse', {
 				'formel': row.formel,
 				'ergebnis': ergebnis,
-<<<<<<< HEAD
 				'sel1': sel1,
-				'sel2': sel2
-=======
+				'sel2': sel2,
 				'spruch': spruch
->>>>>>> 1afac7257003921eb7304f41e4642176069ee04b
 			});
 		}
 	});
@@ -1022,13 +969,15 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('t', 's
 db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('t', 't', '1', '1')`);
 */
 
-
-//db.run('CREATE TABLE spruchListe(art TEXT NOT NULL, spruch TEXT NOT NULL)');
-/*db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('temperatur', 'Die Sonne ist im Kern 15.000.000 °C heiß, 405.405-mal so heiß wie der menschliche Körper.')`);
+// db.run('CREATE TABLE spruchListe(art TEXT NOT NULL, spruch TEXT NOT NULL)');
+/* db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('temperatur', 'Die Sonne ist im Kern 15.000.000 °C heiß, 405.405-mal so heiß wie der menschliche Körper.')`);
 db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('temperatur', 'Die heißeste Temperatur, die je aufgezeichnet wurde beträgt 56,7 Grad Celsius.')`);
 db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('temperatur', 'Die kälteste Temperatur, die je aufgezeichnet wurde beträgt -89,2 Grad Celsius.')`);
 
 db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('zeit', 'Das Universum ist geschätzt etwa 410248800000000000000000000 Nanosekunden alt (4.102488*10^26).')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('zeit', 'Die Pyramiden von Gizeh sind geschätzt etwa 4500 Jahre alt.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('zeit', 'Old Tjikko (eine Gemeine Fichte) in Schweden ist mit ca. 9550 Jahren der älteste Baum der Welt.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('zeit', 'Der Riesenschwamm A.joubini ist mit ca. 10000 Jahren das älteste Lebewesen der Welt.')`);
 
 db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('volumen', 'Ein Olympiaschwimmbecken fasst 2.500.000 L Wasser, das entspricht 60.052.847 Golfbällen.')`);
 db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('volumen', 'Ein Olympiaschwimmbecken fasst 2.500.000 L Wasser, das entspricht 16.556.291 Tennisbällen.')`);
