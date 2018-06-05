@@ -18,6 +18,7 @@
 04.06.2018: Rechenformeln für Zeit hinzugefügt, Berechnungen funktionieren                     Fabian Hensel       30 Min
 04.06.2018: Rechenformeln für Masse, Volumen, Flächen hinzugefügt (Berech. funktionieren)      Jakob l'Etienne	  100 Min
 04.06.2018: Rechenformeln für Längen hinzugefügt, Buttons angepasst                            Fabian Hensel       80 Min
+05.06.2018: Fakten hinzugefügt + Anzeige auf allen Seiten				       Jakob l'Etienne     60 Min
 
 05.06.2018: Neu laden der Drop-Down Werte verhindert                                           Fabian Hensel      120 Min
 
