@@ -29,43 +29,97 @@ app.listen(port, function() {
 
 //Seiten-Links
 app.get('/laengen', (req, res) => {
-	res.render('laengen', {
-		'formel': '',
-		'ergebnis': ''
+	var art = 'laengen'
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('laengen', {
+			'formel': '',
+			'ergebnis': '',
+			'spruch': row.spruch
+			});
+		}
 	});
 });
 
 app.get('/flaechen', (req, res) => {
-	res.render('flaechen', {
-		'formel': '',
-		'ergebnis': ''
+	var art = 'flaechen'
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('flaechen', {
+			'formel': '',
+			'ergebnis': '',
+			'spruch': row.spruch
+			});
+		}
 	});
 });
 
 app.get('/volumen', (req, res) => {
-	res.render('volumen', {
-		'formel': '',
-		'ergebnis': ''
+	var art = 'volumen'
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('volumen', {
+			'formel': '',
+			'ergebnis': '',
+			'spruch': row.spruch
+			});
+		}
 	});
 });
 
 app.get('/masse', (req, res) => {
-	res.render('masse', {
-		'formel': '',
-		'ergebnis': ''
+	var art = 'masse'
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('masse', {
+			'formel': '',
+			'ergebnis': '',
+			'spruch': row.spruch
+			});
+		}
 	});
 });
 app.get('/zeit', (req, res) => {
-	res.render('zeit', {
-		'formel': '',
-		'ergebnis': ''
+	var art = 'zeit'
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('zeit', {
+			'formel': '',
+			'ergebnis': '',
+			'spruch': row.spruch
+			});
+		}
 	});
 });
 
 app.get('/temperatur', (req, res) => {
-	res.render('temperatur', {
-		'formel': '',
-		'ergebnis': ''
+	var art = 'temperatur'
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			res.render('temperatur', {
+			'formel': '',
+			'ergebnis': '',
+			'spruch': row.spruch
+			});
+		}
 	});
 });
 
@@ -77,6 +131,17 @@ app.post('/onLaengen', (req, res) => {
 	var calculation;
 	var mal = "*";
 	var ergebnis;
+	
+	var art = 'laengen'
+	var spruch;
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			spruch = row.spruch;
+		}
+	});
 	
 	const sql = `SELECT formel,rechenFormel FROM laengenFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
@@ -90,7 +155,8 @@ app.post('/onLaengen', (req, res) => {
 			console.log(ergebnis);
 			res.render('laengen', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'spruch': spruch
 			});
 		}
 	});
@@ -104,6 +170,17 @@ app.post('/onTemperatur', (req, res) => {
 	var calculation;
 	var ergebnis;
 	
+	var art = 'temperatur'
+	var spruch;
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			spruch = row.spruch;
+		}
+	});
+	
 	const sql = `SELECT formel,rechenFormel FROM temperaturFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
@@ -116,7 +193,8 @@ app.post('/onTemperatur', (req, res) => {
 			console.log(ergebnis);
 			res.render('temperatur', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'spruch': spruch
 			});
 		}
 	});
@@ -132,6 +210,17 @@ app.post('/onZeit', (req, res) => {
 	var mal = "*";
 	var ergebnis;
 	
+	var art = 'zeit'
+	var spruch;
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			spruch = row.spruch;
+		}
+	});
+	
 	const sql = `SELECT formel,rechenFormel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
@@ -144,7 +233,8 @@ app.post('/onZeit', (req, res) => {
 			console.log(ergebnis);
 			res.render('zeit', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'spruch': spruch
 			});
 		}
 	});
@@ -159,6 +249,17 @@ app.post('/onFlaechen', (req, res) => {
 	var mal = "*";
 	var ergebnis;
 	
+	var art = 'flaechen'
+	var spruch;
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			spruch = row.spruch;
+		}
+	});
+	
 	const sql = `SELECT formel,rechenFormel FROM flaechenFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
@@ -171,7 +272,8 @@ app.post('/onFlaechen', (req, res) => {
 			console.log(ergebnis);
 			res.render('flaechen', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'spruch': spruch
 			});
 		}
 	});
@@ -186,6 +288,17 @@ app.post('/onVolumen', (req, res) => {
 	var mal = "*";
 	var ergebnis;
 	
+	var art = 'volumen'
+	var spruch;
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			spruch = row.spruch;
+		}
+	});
+	
 	const sql = `SELECT formel,rechenFormel FROM volumenFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
@@ -198,7 +311,8 @@ app.post('/onVolumen', (req, res) => {
 			console.log(ergebnis);
 			res.render('volumen', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'spruch': spruch
 			});
 		}
 	});
@@ -213,6 +327,17 @@ app.post('/onMasse', (req, res) => {
 	var mal = "*";
 	var ergebnis;
 	
+	var art = 'masse'
+	var spruch;
+	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+		if (error) {
+			console.log(error.message);
+		}
+		else {
+			spruch = row.spruch;
+		}
+	});
+	
 	const sql = `SELECT formel,rechenFormel FROM masseFormel WHERE von='${sel1}' AND nach='${sel2}'`
 	db.get(sql, (error, row) => {
 		if (error) {
@@ -225,7 +350,8 @@ app.post('/onMasse', (req, res) => {
 			console.log(ergebnis);
 			res.render('masse', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'spruch': spruch
 			});
 		}
 	});
@@ -828,10 +954,34 @@ db.run(`INSERT INTO masseFormel(von, nach, formel, rechenFormel) VALUES ('t', 't
 */
 
 
+//db.run('CREATE TABLE spruchListe(art TEXT NOT NULL, spruch TEXT NOT NULL)');
+/*db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('temperatur', 'Die Sonne ist im Kern 15.000.000 °C heiß, 405.405-mal so heiß wie der menschliche Körper.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('temperatur', 'Die heißeste Temperatur, die je aufgezeichnet wurde beträgt 56,7 Grad Celsius.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('temperatur', 'Die kälteste Temperatur, die je aufgezeichnet wurde beträgt -89,2 Grad Celsius.')`);
 
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('zeit', 'Das Universum ist geschätzt etwa 410248800000000000000000000 Nanosekunden alt (4.102488*10^26).')`);
 
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('volumen', 'Ein Olympiaschwimmbecken fasst 2.500.000 L Wasser, das entspricht 60.052.847 Golfbällen.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('volumen', 'Ein Olympiaschwimmbecken fasst 2.500.000 L Wasser, das entspricht 16.556.291 Tennisbällen.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('volumen', 'Ein Olympiaschwimmbecken fasst 2.500.000 L Wasser, das entspricht 0,382 % des Volumens, welches der längste Öltanker der Welt transportieren kann (652.000.000 L).')`);
 
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('flaechen', 'Die Fläche der Erde beträgt 510.100.000 km² oder 8.178.611.511.944.845 Blatt Papier.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('flaechen', 'Die Fläche der Erde beträgt 510.100.000 km² oder 71.442.577.031 Fußballfelder.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('flaechen', 'Die Fläche der Erde beträgt 510.100.000 km² oder 145.742.857.142.857 Rollen Klopapier.')`);
 
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('laengen', '78.000.000.000 Lichtjahre ist das Universum mindestens groß, das sind 737936976861000000000000 Kilometer (7,37936976861e+23).')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('laengen', 'Die Entfernung von der Erde zum Mond entspricht ca. 384.400 km oder 2.745.714.286 EU-Genormte Bananen (14 cm).')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('laengen', 'Die Entfernung von der Erde zum Mond entspricht ca. 384.400 km oder 2.562.666.666.667 Blatt Papier übereinandergestapelt.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('laengen', 'Die Entfernung von der Erde zum Mond entspricht ca. 384.400 km oder 14.784.615 hintereinander schwimmende Blauwale.')`);
 
-
-
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Ein Elefant wiegt im Durchschnitt 4,5 Tonnen oder soviel wie 56 Menschen (80kg).')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Ein Elefant wiegt im Durchschnitt 4,5 Tonnen oder soviel wie 35 Lamas.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Ein Elefant wiegt im Durchschnitt 4,5 Tonnen oder soviel wie 3.913 Enten.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Ein Elefant wiegt im Durchschnitt 4,5 Tonnen oder soviel wie 20 Esel.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Ein Elefant wiegt im Durchschnitt 4,5 Tonnen oder soviel wie 4.734 Otter.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Ein Elefant wiegt im Durchschnitt 4,5 Tonnen oder soviel wie 34.615 Bananen.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Die Queen Mary 2 wiegt 79.300 Tonnen, oder soviel wie 17.622 Elefanten.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Die Queen Mary 2 wiegt 79.300 Tonnen, oder soviel wie 566 Blauwale.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Die Queen Mary 2 wiegt 79.300 Tonnen, oder soviel wie 68.956.522 Enten.')`);
+db.run(`INSERT INTO spruchListe(art, spruch) VALUES ('masse', 'Die Queen Mary 2 wiegt 79.300 Tonnen, oder soviel wie 610.000.000 Bananen.')`);
+*/

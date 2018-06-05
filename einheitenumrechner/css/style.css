@@ -1,4 +1,4 @@
-ul {
+﻿ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -80,8 +80,8 @@ form {
 
 .fieldsetSpruch {
 	text-align: center;
-	max-width: 700px;
-	height: 45px;
+	max-width: 800px;
+	max-height: 80px;
 	margin: 2em auto;
 }
 
@@ -159,6 +159,7 @@ form {
 	url("Geodreieck.jpg") 5% 45% no-repeat
 	;
 }
+
 
 
 
