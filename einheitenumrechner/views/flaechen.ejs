@@ -45,10 +45,13 @@
 		
 		<section>
 		<form action="/onFlaechen" method="post">
-			<input type="text" name="number">
+			<input type="text" name="number" autofocus placeholder="Eingabe">
 			
 		<select name="Temp1">
-			<option value="mm²" selected>Quadratmillimeter</option>
+			<option style="background-color: yellow"><% if (sel1 == "mm²") {%>Quadratmillimeter<%} else if (sel1 == "cm²") {%>Quadratcentimeter<%} else if (sel1 == "dm²") {%>Quadratdezimeter<%} 
+			else if (sel1 == "m²") {%>Quadratmeter<%} else if (sel1 == "ar") {%>Acre<%} else if (sel1 == "he") {%>Hektar<%}
+			else if (sel1 == "km²") {%>Quadratkilometer<%} else if (sel1 == "mi²") {%>Quadratmeile<%}%></option>
+			<option value="mm²">Quadratmillimeter</option>
 			<option value="cm²">Quadratcentimeter</option>
 			<option value="dm²">Quadratdezimeter</option>
 			<option value="m²">Quadratmeter</option>
@@ -65,7 +68,10 @@
 		</div>
 		
 		<select name="Temp2">
-			<option value="mm²" selected>Quadratmillimeter</option>
+			<option style="background-color: yellow"><% if (sel2 == "mm²") {%>Quadratmillimeter<%} else if (sel2 == "cm²") {%>Quadratcentimeter<%} else if (sel2 == "dm²") {%>Quadratdezimeter<%} 
+			else if (sel2 == "m²") {%>Quadratmeter<%} else if (sel2 == "ar") {%>Acre<%} else if (sel2 == "he") {%>Hektar<%}
+			else if (sel2 == "km²") {%>Quadratkilometer<%} else if (sel2 == "mi²") {%>Quadratmeile<%}%></option>
+			<option value="mm²">Quadratmillimeter</option>
 			<option value="cm²">Quadratcentimeter</option>
 			<option value="dm²">Quadratdezimeter</option>
 			<option value="m²">Quadratmeter</option>

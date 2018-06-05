@@ -24,9 +24,6 @@
 			<li><a href="/temperatur">Temperatur</a></li>
 			<li class="right"><a href="/DEEN">DE/EN</a></li>
 		</ul>
-		<!-- <script> 
-			alert("Willkommen, über die obere Leiste können die jeweiligen Einheitsformen ausgewählt werden! Viel Spaß beim umrechnen!");
-		</script>  -->
 		
 		<select class="colorChange" id="colorLänge" onchange="getSelectColor();">
 			<option value="blue" style="background-color: blue"> </option>
@@ -48,10 +45,15 @@
 		
 		<section>
 		<form action="/onLaengen" method="post">
-			<input type="text" name="number">
+			<input type="text" name="number" autofocus placeholder="Eingabe">
 		
 		<select name="Temp1">
-			<option value="nm" selected>Nanometer</option>
+			<option style="background-color: yellow"><% if (sel1 == "nm") {%>Nanometer<%} else if (sel1 == "µm") {%>Mikrometer<%} else if (sel1 == "mm") {%>Millimeter<%} 
+			else if (sel1 == "cm") {%>Centimeter<%} else if (sel1 == "in") {%>Zoll<%} else if (sel1 == "dm") {%>Dezimeter<%}
+			else if (sel1 == "f") {%>Fuß<%} else if (sel1 == "yd") {%>Yard<%} else if (sel1 == "m") {%>Meter<%} else if (sel1 == "km") {%>Kilometer<%}
+			else if (sel1 == "mi") {%>Meile<%} else if (sel1 == "smi") {%>Seemeile<%} else if (sel1 == "ae") {%>Astro. Einheit<%} 
+			else if (sel1 == "lj") {%>Lichtjahr<%}%></option>
+			<option value="nm">Nanometer</option>
 			<option value="µm">Mikrometer</option>
 			<option value="mm">Millimeter</option>
 			<option value="cm">Centimeter</option>
@@ -74,7 +76,12 @@
 		</div>
 		
 		<select name="Temp2">
-			<option value="nm" selected>Nanometer</option>
+			<option style="background-color: yellow"><% if (sel2 == "nm") {%>Nanometer<%} else if (sel2 == "µm") {%>Mikrometer<%} else if (sel2 == "mm") {%>Millimeter<%} 
+			else if (sel2 == "cm") {%>Centimeter<%} else if (sel2 == "in") {%>Zoll<%} else if (sel2 == "dm") {%>Dezimeter<%}
+			else if (sel2 == "f") {%>Fuß<%} else if (sel2 == "yd") {%>Yard<%} else if (sel2 == "m") {%>Meter<%} else if (sel2 == "km") {%>Kilometer<%}
+			else if (sel2 == "mi") {%>Meile<%} else if (sel2 == "smi") {%>Seemeile<%} else if (sel2 == "ae") {%>Astro. Einheit<%} 
+			else if (sel2 == "lj") {%>Lichtjahr<%}%></option>
+			<option value="nm">Nanometer</option>
 			<option value="µm">Mikrometer</option>
 			<option value="mm">Millimeter</option>
 			<option value="cm">Centimeter</option>

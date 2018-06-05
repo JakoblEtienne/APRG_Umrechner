@@ -31,41 +31,53 @@ app.listen(port, function() {
 app.get('/laengen', (req, res) => {
 	res.render('laengen', {
 		'formel': '',
-		'ergebnis': ''
+		'ergebnis': '',
+		'sel1': '',
+		'sel2': ''
 	});
 });
 
 app.get('/flaechen', (req, res) => {
 	res.render('flaechen', {
 		'formel': '',
-		'ergebnis': ''
+		'ergebnis': '',
+		'sel1': '',
+		'sel2': ''
 	});
 });
 
 app.get('/volumen', (req, res) => {
 	res.render('volumen', {
 		'formel': '',
-		'ergebnis': ''
+		'ergebnis': '',
+		'sel1': '',
+		'sel2': ''
 	});
 });
 
 app.get('/masse', (req, res) => {
 	res.render('masse', {
 		'formel': '',
-		'ergebnis': ''
+		'ergebnis': '',
+		'sel1': '',
+		'sel2': ''
 	});
 });
 app.get('/zeit', (req, res) => {
 	res.render('zeit', {
 		'formel': '',
-		'ergebnis': ''
+		'ergebnis': '',
+		'sel1': '',
+		'sel2': ''
 	});
 });
 
 app.get('/temperatur', (req, res) => {
 	res.render('temperatur', {
 		'formel': '',
-		'ergebnis': ''
+		'ergebnis': '',
+		'sel1': '',
+		'sel2': ''
 	});
 });
 
@@ -87,10 +99,11 @@ app.post('/onLaengen', (req, res) => {
 			rechenFormel = row.rechenFormel;
 			calculation = number.concat(mal, rechenFormel);			
 			ergebnis = eval(calculation.toString());
-			console.log(ergebnis);
 			res.render('laengen', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'sel1': sel1,
+				'sel2': sel2
 			});
 		}
 	});
@@ -113,10 +126,11 @@ app.post('/onTemperatur', (req, res) => {
 			rechenFormel = row.rechenFormel;
 			calculation = number.concat(rechenFormel);			
 			ergebnis = eval(calculation.toString());
-			console.log(ergebnis);
 			res.render('temperatur', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'sel1': sel1,
+				'sel2': sel2
 			});
 		}
 	});
@@ -141,10 +155,11 @@ app.post('/onZeit', (req, res) => {
 			rechenFormel = row.rechenFormel;
 			calculation = number.concat(mal, rechenFormel);			
 			ergebnis = eval(calculation.toString());
-			console.log(ergebnis);
 			res.render('zeit', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'sel1': sel1,
+				'sel2': sel2
 			});
 		}
 	});
@@ -168,10 +183,11 @@ app.post('/onFlaechen', (req, res) => {
 			rechenFormel = row.rechenFormel;
 			calculation = number.concat(mal, rechenFormel);			
 			ergebnis = eval(calculation.toString());
-			console.log(ergebnis);
 			res.render('flaechen', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'sel1': sel1,
+				'sel2': sel2
 			});
 		}
 	});
@@ -195,10 +211,11 @@ app.post('/onVolumen', (req, res) => {
 			rechenFormel = row.rechenFormel;
 			calculation = number.concat(mal, rechenFormel);			
 			ergebnis = eval(calculation.toString());
-			console.log(ergebnis);
 			res.render('volumen', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'sel1': sel1,
+				'sel2': sel2
 			});
 		}
 	});
@@ -222,10 +239,11 @@ app.post('/onMasse', (req, res) => {
 			rechenFormel = row.rechenFormel;
 			calculation = number.concat(mal, rechenFormel);			
 			ergebnis = eval(calculation.toString());
-			console.log(ergebnis);
 			res.render('masse', {
 				'formel': row.formel,
-				'ergebnis': ergebnis
+				'ergebnis': ergebnis,
+				'sel1': sel1,
+				'sel2': sel2
 			});
 		}
 	});
@@ -336,7 +354,6 @@ db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'w'
 db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'j', '1', '1')`);
 */
 
-
 // db.run('CREATE TABLE laengenFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL, rechenFormel TEXT NOT NULL)');
 /* db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('nm', 'nm', '1', '1')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('nm', 'µm', '10^-3', 'Math.pow(10, -3)')`);
@@ -400,9 +417,8 @@ db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('cm',
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('cm', 'smi', '10^-2 / 1852', 'Math.pow(10, -2) / 1852')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('cm', 'ae', '10^-11 / 149,598', 'Math.pow(10, -11) / 149.598')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('cm', 'lj', '10^-17 / 9,461', 'Math.pow(10, -17) / 9.461')`);
-*/
 
-/* db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'nm', '2,54 * 10^7', '2.54 * Math.pow(10, 7)')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'nm', '2,54 * 10^7', '2.54 * Math.pow(10, 7)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'µm', '2,54 * 10^4', '2.54 * Math.pow(10, 4)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'mm', '2,54 * 10^1', '2.54 * Math.pow(10, 1)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'cm', '2,54', '2.54')`);
@@ -464,9 +480,8 @@ db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd',
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'smi', '0,9144 / 1852', '0.9144 / 1852')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'ae', '0,9144 / 149,598*10^9', '0.9144 / 149.598 * Math.pow(10, 9)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'lj', '0,9144 / 9,461*10^15', '0.9144 / 9.461 * Math.pow(10, 15)')`);
-*/
 
-/* db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('m', 'nm', '10^9', 'Math.pow(10, 9)')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('m', 'nm', '10^9', 'Math.pow(10, 9)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('m', 'µm', '10^6', 'Math.pow(10, 6)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('m', 'mm', '10^3', 'Math.pow(10, 3)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('m', 'cm', '10^2', 'Math.pow(10, 2)')`);

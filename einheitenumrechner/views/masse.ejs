@@ -45,10 +45,13 @@
 		
 		<section>
 		<form action="/onMasse" method="post">
-			<input type="text" name="number">
+			<input type="text" name="number" autofocus placeholder="Eingabe">
 			
 		<select name="Temp1">
-			<option value="ng" selected>Nanogramm</option>
+			<option style="background-color: yellow"><% if (sel1 == "ng") {%>Nanogramm<%} else if (sel1 == "µg") {%>Mikrogramm<%} else if (sel1 == "mg") {%>Milligramm<%} 
+			else if (sel1 == "g") {%>Gramm<%} else if (sel1 == "u") {%>Unze<%} else if (sel1 == "p") {%>Pfund<%}
+			else if (sel1 == "kg") {%>Kilogramm<%} else if (sel1 == "s") {%>Stone<%} else if (sel1 == "t") {%>Tonne<%}%></option>
+			<option value="ng">Nanogramm</option>
 			<option value="µg">Mikrogramm</option>
 			<option value="mg">Milligramm</option>
 			<option value="g">Gramm</option>
@@ -66,7 +69,10 @@
 		</div>
 		
 		<select name="Temp2">
-			<option value="ng" selected>Nanogramm</option>
+			<option style="background-color: yellow"><% if (sel2 == "ng") {%>Nanogramm<%} else if (sel2 == "µg") {%>Mikrogramm<%} else if (sel2 == "mg") {%>Milligramm<%} 
+			else if (sel2 == "g") {%>Gramm<%} else if (sel2 == "u") {%>Unze<%} else if (sel2 == "p") {%>Pfund<%}
+			else if (sel2 == "kg") {%>Kilogramm<%} else if (sel2 == "s") {%>Stone<%} else if (sel2 == "t") {%>Tonne<%}%></option>
+			<option value="ng">Nanogramm</option>
 			<option value="µg">Mikrogramm</option>
 			<option value="mg">Milligramm</option>
 			<option value="g">Gramm</option>

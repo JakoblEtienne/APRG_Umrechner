@@ -45,10 +45,13 @@
 		
 		<section>
 		<form action="/onZeit" method="post">
-			<input type="text" name="number">
+			<input type="text" name="number" autofocus placeholder="Eingabe">
 			
 		<select name="Temp1">
-			<option value="ns" selected>Nanosekunde</option>
+			<option style="background-color: yellow"><% if (sel1 == "ns") {%>Nanosekunde<%} else if (sel1 == "µs") {%>Mikrosekunde<%} else if (sel1 == "ms") {%>Millisekunde<%} 
+			else if (sel1 == "s") {%>Sekunde<%} else if (sel1 == "min") {%>Minute<%} else if (sel1 == "h") {%>Stunde<%}
+			else if (sel1 == "d") {%>Tag<%} else if (sel1 == "w") {%>Woche<%} else if (sel1 == "j") {%>Jahr<%}%></option>
+			<option value="ns">Nanosekunde</option>
 			<option value="µs">Mikrosekunde</option>
 			<option value="ms">Millisekunde</option>
 			<option value="s">Sekunde</option>
@@ -66,7 +69,10 @@
 		</div>
 		
 		<select name="Temp2">
-			<option value="ns" selected>Nanosekunde</option>
+			<option style="background-color: yellow"><% if (sel2 == "ns") {%>Nanosekunde<%} else if (sel2 == "µs") {%>Mikrosekunde<%} else if (sel2 == "ms") {%>Millisekunde<%} 
+			else if (sel2 == "s") {%>Sekunde<%} else if (sel2 == "min") {%>Minute<%} else if (sel2 == "h") {%>Stunde<%}
+			else if (sel2 == "d") {%>Tag<%} else if (sel2 == "w") {%>Woche<%} else if (sel2 == "j") {%>Jahr<%}%></option>
+			<option value="ns">Nanosekunde</option>
 			<option value="µs">Mikrosekunde</option>
 			<option value="ms">Millisekunde</option>
 			<option value="s">Sekunde</option>
