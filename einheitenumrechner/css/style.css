@@ -160,6 +160,27 @@ form {
 	;
 }
 
+.bildFläche {
+	background:
+	url("fläche.png") 5% 15% no-repeat
+	;
+	background-size: 500px 295px;
+}
+
+.bildVolumen {
+	background:
+	url("würfel.png") 5% 45% no-repeat
+	;
+	background-size: 568px 571px;
+}
+
+.bildMasse {
+	background:
+	url("gewicht.png") 5% 20% no-repeat
+	;
+	background-size: 480px 319px;
+}
+
 
 
 
