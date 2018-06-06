@@ -162,9 +162,9 @@ form {
 
 .bildFläche {
 	background:
-	url("fläche.png") 5% 15% no-repeat
+	url("fläche.jpg") 2% 10% no-repeat
 	;
-	background-size: 500px 295px;
+	background-size: 532px 478px;
 }
 
 .bildVolumen {
