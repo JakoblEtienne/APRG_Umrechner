@@ -482,7 +482,7 @@ db.run(`INSERT INTO zeitFormel(von, nach, formel, rechenFormel) VALUES ('j', 'j'
 */
 
 // db.run('CREATE TABLE laengenFormel(von TEXT NOT NULL, nach TEXT NOT NULL, formel TEXT NOT NULL, rechenFormel TEXT NOT NULL)');
-/* db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('nm', 'nm', '1', '1')`);
+/*db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('nm', 'nm', '1', '1')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('nm', 'µm', '10^-3', 'Math.pow(10, -3)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('nm', 'mm', '10^-6', 'Math.pow(10, -6)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('nm', 'cm', '10^-7', 'Math.pow(10, -7)')`);
@@ -557,8 +557,8 @@ db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in',
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'km', '2,54 / 10^5', '2.54 / Math.pow(10, 5)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'mi', '2,54 / 160934', '2.54 / 160934')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'smi', '2,54 / 185200', '2.54 / 185200')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'ae', '0,0254 / 149,598*10^9', '0.0254 / 149.598 * Math.pow(10, 9)')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'lj', '0,0254 / 9,461*10^15', '0.0254 / 9.461 * Math.pow(10, 15)')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'ae', '0,0254 / (149,598*10^9)', '0.0254 / (149.598 * Math.pow(10, 9))')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('in', 'lj', '0,0254 / (9,461*10^15)', '0.0254 / (9.461 * Math.pow(10, 15))')`);
 
 
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('dm', 'nm', '10^8', 'Math.pow(10, 8)')`);
@@ -589,8 +589,8 @@ db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('f', 
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('f', 'km', '0,3048 / 1000', '0.3048 / 1000')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('f', 'mi', '0,3048 / 1609,34', '0.3048 / 1609.34')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('f', 'smi', '0,3048 / 1852', '0.3048 / 1852')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('f', 'ae', '0,3048 / 149,598*10^9', '0.3048 / 149.598 * Math.pow(10, 9)')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('f', 'lj', '0,3048 / 9,461*10^15', '0.3048 / 9.461 * Math.pow(10, 15)')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('f', 'ae', '0,3048 / (149,598*10^9)', '0.3048 / (149.598 * Math.pow(10, 9))')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('f', 'lj', '0,3048 / (9,461*10^15)', '0.3048 / (9.461 * Math.pow(10, 15))')`);
 
 
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'nm', '0,9144 * 10^9', '0.9144 * Math.pow(10, 9)')`);
@@ -605,8 +605,8 @@ db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd',
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'km', '0,9144 / 1000', '0.9144 / 1000')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'mi', '0,9144 / 1609,34', '0.9144 / 1609.34')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'smi', '0,9144 / 1852', '0.9144 / 1852')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'ae', '0,9144 / 149,598*10^9', '0.9144 / 149.598 * Math.pow(10, 9)')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'lj', '0,9144 / 9,461*10^15', '0.9144 / 9.461 * Math.pow(10, 15)')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'ae', '0,9144 / (149,598*10^9)', '0.9144 / (149.598 * Math.pow(10, 9))')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('yd', 'lj', '0,9144 / (9,461*10^15)', '0.9144 / (9.461 * Math.pow(10, 15))')`);
 
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('m', 'nm', '10^9', 'Math.pow(10, 9)')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('m', 'µm', '10^6', 'Math.pow(10, 6)')`);
@@ -652,8 +652,8 @@ db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('mi',
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('mi', 'km', '1609,34 / 1000', '1609.34 / 1000')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('mi', 'mi', '1', '1')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('mi', 'smi', '1609,34 / 1852', '1609.34 / 1852')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('mi', 'ae', '1609,34 / 149,598*10^9', '1609.34 / 149.598 * Math.pow(10, 9)')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('mi', 'lj', '1609,34 / 9,461*10^15', '1609.34 / 9.461 * Math.pow(10, 15)')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('mi', 'ae', '1609,34 / (149,598*10^9)', '1609.34 / (149.598 * Math.pow(10, 9))')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('mi', 'lj', '1609,34 / (9,461*10^15)', '1609.34 / (9.461 * Math.pow(10, 15))')`);
 
 
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi', 'nm', '1852 * 10^9', '1852 * Math.pow(10, 9)')`);
@@ -668,8 +668,8 @@ db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi'
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi', 'km', '1852 / 1000', '1852 / 1000')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi', 'mi', '1852 / 1609,34', '1852 / 1609.34')`);
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi', 'smi', '1', '1')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi', 'ae', '1852 / 149,598*10^9', '1852 / 149.598 * Math.pow(10, 9)')`);
-db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi', 'lj', '1852 / 9,461*10^15', '1852 / 9.461 * Math.pow(10, 15)')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi', 'ae', '1852 / (149,598*10^9)', '1852 / (149.598 * Math.pow(10, 9))')`);
+db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('smi', 'lj', '1852 / (9,461*10^15)', '1852 / (9.461 * Math.pow(10, 15))')`);
 
 
 db.run(`INSERT INTO laengenFormel(von, nach, formel, rechenFormel) VALUES ('ae', 'nm', '149,598 * 10^18', '149.598 * Math.pow(10, 18)')`);
