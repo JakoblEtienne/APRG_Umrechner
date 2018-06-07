@@ -147,7 +147,7 @@ app.post('/onLaengen', (req, res) => {
 	var art = 'laengen'
 	var spruch;
 	
-	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	// Fehler Abfrage, überprüft ob Eingegebenes keine Zahl ist oder ob nichts eingegeben wurde
 	if (isNaN(number) || number == '') {
 		ergebnis = "Bitte Zahl eingeben!";
 		formel = "NaN";
@@ -202,7 +202,7 @@ app.post('/onTemperatur', (req, res) => {
 	var art = 'temperatur'
 	var spruch;
 	
-	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	// Fehler Abfrage, überprüft ob Eingegebenes keine Zahl ist oder ob nichts eingegeben wurde
 	if (isNaN(number) || number == '') {
 		ergebnis = "Bitte Zahl eingeben!";
 		formel = "NaN";
@@ -259,7 +259,7 @@ app.post('/onZeit', (req, res) => {
 	var art = 'zeit'
 	var spruch;
 	
-	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	// Fehler Abfrage, überprüft ob Eingegebenes keine Zahl ist oder ob nichts eingegeben wurde
 	if (isNaN(number) || number == '') {
 		ergebnis = "Bitte Zahl eingeben!";
 		formel = "NaN";
@@ -315,7 +315,7 @@ app.post('/onFlaechen', (req, res) => {
 	var art = 'flaechen'
 	var spruch;
 	
-	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	// Fehler Abfrage, überprüft ob Eingegebenes keine Zahl ist oder ob nichts eingegeben wurde
 	if (isNaN(number) || number == '') {
 		ergebnis = "Bitte Zahl eingeben!";
 		formel = "NaN";
@@ -371,7 +371,7 @@ app.post('/onVolumen', (req, res) => {
 	var art = 'volumen'
 	var spruch;
 	
-	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	// Fehler Abfrage, überprüft ob Eingegebenes keine Zahl ist oder ob nichts eingegeben wurde
 	if (isNaN(number) || number == '') {
 		ergebnis = "Bitte Zahl eingeben!";
 		formel = "NaN";
@@ -427,7 +427,7 @@ app.post('/onMasse', (req, res) => {
 	var art = 'masse'
 	var spruch;
 	
-	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	// Fehler Abfrage, überprüft ob Eingegebenes keine Zahl ist oder ob nichts eingegeben wurde
 	if (isNaN(number) || number == '') {
 		ergebnis = "Bitte Zahl eingeben!";
 		formel = "NaN";
