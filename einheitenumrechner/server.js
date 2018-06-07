@@ -144,36 +144,52 @@ app.post('/onLaengen', (req, res) => {
 	var calculation;
 	var mal = "*";
 	var ergebnis;
-	
 	var art = 'laengen'
 	var spruch;
-	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			spruch = row.spruch;
-		}
-	});
 	
-	const sql = `SELECT formel,rechenFormel FROM laengenFormel WHERE von='${sel1}' AND nach='${sel2}'`
-	db.get(sql, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			rechenFormel = row.rechenFormel;
-			calculation = number.concat(mal, rechenFormel);			
-			ergebnis = eval(calculation.toString());
-			res.render('laengen', {
-				'formel': row.formel,
-				'ergebnis': ergebnis,
-				'sel1': sel1,
-				'sel2': sel2,
-				'spruch': spruch
-			});
-		}
-	});
+	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	if (isNaN(number) || number == '') {
+		ergebnis = "Bitte Zahl eingeben!";
+		formel = "NaN";
+		spruch = "Wer Zahlen mit Zeichen (Buchstaben) verwechselt, sollte nochmal die Schulbank drücken! :P";
+		res.render('laengen', {
+			'ergebnis': ergebnis,
+			'sel1': sel1,
+			'sel2': sel2,
+			'formel': formel,
+			'spruch': spruch
+		});
+	}
+	
+	else {
+		db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				spruch = row.spruch;
+			}
+		});
+	
+		const sql = `SELECT formel,rechenFormel FROM laengenFormel WHERE von='${sel1}' AND nach='${sel2}'`
+		db.get(sql, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				rechenFormel = row.rechenFormel;
+				calculation = number.concat(mal, rechenFormel);			
+				ergebnis = eval(calculation.toString());
+				res.render('laengen', {
+					'formel': row.formel,
+					'ergebnis': ergebnis,
+					'sel1': sel1,
+					'sel2': sel2,
+					'spruch': spruch
+				});
+			}
+		});
+	}
 });
 
 app.post('/onTemperatur', (req, res) => {
@@ -183,36 +199,52 @@ app.post('/onTemperatur', (req, res) => {
 	var rechenFormel;
 	var calculation;
 	var ergebnis;
-	
 	var art = 'temperatur'
 	var spruch;
-	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			spruch = row.spruch;
-		}
-	});
 	
-	const sql = `SELECT formel,rechenFormel FROM temperaturFormel WHERE von='${sel1}' AND nach='${sel2}'`
-	db.get(sql, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			rechenFormel = row.rechenFormel;
-			calculation = number.concat(rechenFormel);			
-			ergebnis = eval(calculation.toString());
-			res.render('temperatur', {
-				'formel': row.formel,
-				'ergebnis': ergebnis,
-				'sel1': sel1,
-				'sel2': sel2,
-				'spruch': spruch
-			});
-		}
-	});
+	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	if (isNaN(number) || number == '') {
+		ergebnis = "Bitte Zahl eingeben!";
+		formel = "NaN";
+		spruch = "Wer Zahlen mit Zeichen (Buchstaben) verwechselt, sollte nochmal die Schulbank drücken! :P";
+		res.render('temperatur', {
+			'ergebnis': ergebnis,
+			'sel1': sel1,
+			'sel2': sel2,
+			'formel': formel,
+			'spruch': spruch
+		});
+	}
+	
+	else {
+		db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				spruch = row.spruch;
+			}
+		});
+	
+		const sql = `SELECT formel,rechenFormel FROM temperaturFormel WHERE von='${sel1}' AND nach='${sel2}'`
+		db.get(sql, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				rechenFormel = row.rechenFormel;
+				calculation = number.concat(rechenFormel);			
+				ergebnis = eval(calculation.toString());
+				res.render('temperatur', {
+					'formel': row.formel,
+					'ergebnis': ergebnis,
+					'sel1': sel1,
+					'sel2': sel2,
+					'spruch': spruch
+				});
+			}
+		});
+	}
 });
 
 
@@ -224,36 +256,52 @@ app.post('/onZeit', (req, res) => {
 	var calculation;
 	var mal = "*";
 	var ergebnis;
-	
 	var art = 'zeit'
 	var spruch;
-	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			spruch = row.spruch;
-		}
-	});
 	
-	const sql = `SELECT formel,rechenFormel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'`
-	db.get(sql, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			rechenFormel = row.rechenFormel;
-			calculation = number.concat(mal, rechenFormel);			
-			ergebnis = eval(calculation.toString());
-			res.render('zeit', {
-				'formel': row.formel,
-				'ergebnis': ergebnis,
-				'sel1': sel1,
-				'sel2': sel2,
-				'spruch': spruch
-			});
-		}
-	});
+	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	if (isNaN(number) || number == '') {
+		ergebnis = "Bitte Zahl eingeben!";
+		formel = "NaN";
+		spruch = "Wer Zahlen mit Zeichen (Buchstaben) verwechselt, sollte nochmal die Schulbank drücken! :P";
+		res.render('zeit', {
+			'ergebnis': ergebnis,
+			'sel1': sel1,
+			'sel2': sel2,
+			'formel': formel,
+			'spruch': spruch
+		});
+	}
+	
+	else {
+		db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				spruch = row.spruch;
+			}
+		});
+	
+		const sql = `SELECT formel,rechenFormel FROM zeitFormel WHERE von='${sel1}' AND nach='${sel2}'`
+		db.get(sql, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				rechenFormel = row.rechenFormel;
+				calculation = number.concat(mal, rechenFormel);			
+				ergebnis = eval(calculation.toString());
+				res.render('zeit', {
+					'formel': row.formel,
+					'ergebnis': ergebnis,
+					'sel1': sel1,
+					'sel2': sel2,
+					'spruch': spruch
+				});
+			}
+		});
+	}
 });
 
 app.post('/onFlaechen', (req, res) => {
@@ -264,36 +312,52 @@ app.post('/onFlaechen', (req, res) => {
 	var calculation;
 	var mal = "*";
 	var ergebnis;
-	
 	var art = 'flaechen'
 	var spruch;
-	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			spruch = row.spruch;
-		}
-	});
 	
-	const sql = `SELECT formel,rechenFormel FROM flaechenFormel WHERE von='${sel1}' AND nach='${sel2}'`
-	db.get(sql, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			rechenFormel = row.rechenFormel;
-			calculation = number.concat(mal, rechenFormel);			
-			ergebnis = eval(calculation.toString());
-			res.render('flaechen', {
-				'formel': row.formel,
-				'ergebnis': ergebnis,
-				'sel1': sel1,
-				'sel2': sel2,
-				'spruch': spruch
-			});
-		}
-	});
+	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	if (isNaN(number) || number == '') {
+		ergebnis = "Bitte Zahl eingeben!";
+		formel = "NaN";
+		spruch = "Wer Zahlen mit Zeichen (Buchstaben) verwechselt, sollte nochmal die Schulbank drücken! :P";
+		res.render('flaechen', {
+			'ergebnis': ergebnis,
+			'sel1': sel1,
+			'sel2': sel2,
+			'formel': formel,
+			'spruch': spruch
+		});
+	}
+	
+	else {
+		db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				spruch = row.spruch;
+			}
+		});
+	
+		const sql = `SELECT formel,rechenFormel FROM flaechenFormel WHERE von='${sel1}' AND nach='${sel2}'`
+		db.get(sql, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				rechenFormel = row.rechenFormel;
+				calculation = number.concat(mal, rechenFormel);			
+				ergebnis = eval(calculation.toString());
+				res.render('flaechen', {
+					'formel': row.formel,
+					'ergebnis': ergebnis,
+					'sel1': sel1,
+					'sel2': sel2,
+					'spruch': spruch
+				});
+			}
+		});
+	}
 });
 
 app.post('/onVolumen', (req, res) => {
@@ -304,36 +368,52 @@ app.post('/onVolumen', (req, res) => {
 	var calculation;
 	var mal = "*";
 	var ergebnis;
-	
 	var art = 'volumen'
 	var spruch;
-	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			spruch = row.spruch;
-		}
-	});
 	
-	const sql = `SELECT formel,rechenFormel FROM volumenFormel WHERE von='${sel1}' AND nach='${sel2}'`
-	db.get(sql, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			rechenFormel = row.rechenFormel;
-			calculation = number.concat(mal, rechenFormel);			
-			ergebnis = eval(calculation.toString());
-			res.render('volumen', {
-				'formel': row.formel,
-				'ergebnis': ergebnis,
-				'sel1': sel1,
-				'sel2': sel2,
-				'spruch': spruch
-			});
-		}
-	});
+	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	if (isNaN(number) || number == '') {
+		ergebnis = "Bitte Zahl eingeben!";
+		formel = "NaN";
+		spruch = "Wer Zahlen mit Zeichen (Buchstaben) verwechselt, sollte nochmal die Schulbank drücken! :P";
+		res.render('volumen', {
+			'ergebnis': ergebnis,
+			'sel1': sel1,
+			'sel2': sel2,
+			'formel': formel,
+			'spruch': spruch
+		});
+	}
+	
+	else {
+		db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				spruch = row.spruch;
+			}
+		});
+	
+		const sql = `SELECT formel,rechenFormel FROM volumenFormel WHERE von='${sel1}' AND nach='${sel2}'`
+		db.get(sql, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				rechenFormel = row.rechenFormel;
+				calculation = number.concat(mal, rechenFormel);			
+				ergebnis = eval(calculation.toString());
+				res.render('volumen', {
+					'formel': row.formel,
+					'ergebnis': ergebnis,
+					'sel1': sel1,
+					'sel2': sel2,
+					'spruch': spruch
+				});
+			}
+		});
+	}
 });
 
 app.post('/onMasse', (req, res) => {
@@ -344,36 +424,52 @@ app.post('/onMasse', (req, res) => {
 	var calculation;
 	var mal = "*";
 	var ergebnis;
-	
 	var art = 'masse'
 	var spruch;
-	db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			spruch = row.spruch;
-		}
-	});
 	
-	const sql = `SELECT formel,rechenFormel FROM masseFormel WHERE von='${sel1}' AND nach='${sel2}'`
-	db.get(sql, (error, row) => {
-		if (error) {
-			console.log(error.message);
-		}
-		else {
-			rechenFormel = row.rechenFormel;
-			calculation = number.concat(mal, rechenFormel);			
-			ergebnis = eval(calculation.toString());
-			res.render('masse', {
-				'formel': row.formel,
-				'ergebnis': ergebnis,
-				'sel1': sel1,
-				'sel2': sel2,
-				'spruch': spruch
-			});
-		}
-	});
+	// Fehler Abfrage, überprüft ob Eingegebenes eine Zahl ist oder ob nichts eingegeben wurde
+	if (isNaN(number) || number == '') {
+		ergebnis = "Bitte Zahl eingeben!";
+		formel = "NaN";
+		spruch = "Wer Zahlen mit Zeichen (Buchstaben) verwechselt, sollte nochmal die Schulbank drücken! :P";
+		res.render('masse', {
+			'ergebnis': ergebnis,
+			'sel1': sel1,
+			'sel2': sel2,
+			'formel': formel,
+			'spruch': spruch
+		});
+	}
+	
+	else {
+		db.get(`SELECT spruch from spruchListe WHERE art='${art}' ORDER BY RANDOM() LIMIT 1;`, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				spruch = row.spruch;
+			}
+		});
+	
+		const sql = `SELECT formel,rechenFormel FROM masseFormel WHERE von='${sel1}' AND nach='${sel2}'`
+		db.get(sql, (error, row) => {
+			if (error) {
+				console.log(error.message);
+			}
+			else {
+				rechenFormel = row.rechenFormel;
+				calculation = number.concat(mal, rechenFormel);			
+				ergebnis = eval(calculation.toString());
+				res.render('masse', {
+					'formel': row.formel,
+					'ergebnis': ergebnis,
+					'sel1': sel1,
+					'sel2': sel2,
+					'spruch': spruch
+				});
+			}
+		});
+	}
 });
 
 

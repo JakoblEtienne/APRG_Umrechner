@@ -21,7 +21,8 @@
 05.06.2018: Fakten hinzugefügt + Anzeige auf allen Seiten				       Jakob l'Etienne     60 Min
 05.06.2018: Neu laden der Drop-Down Werte verhindert                                           Fabian Hensel      120 Min
 06.06.2018: Fehler behoben								       Fabian Hensel       30 Min
+07.06.2018: Fehler Abfrage eingebaut (Ob Zeichen oder nichts eingegeben wurde)	               Fabian Hensel       30 Min
 
-											       Gesamtzeit:       1530 Min
-														 25,5 Std
+											       Gesamtzeit:       1560 Min
+														   26 Std
 
