@@ -136,6 +136,10 @@ app.get('/temperatur', (req, res) => {
 	});
 });
 
+app.get('/DEEN', (req, res) => {
+	res.render('deen');
+});
+
 app.post('/onLaengen', (req, res) => {
 	const sel1 = req.body.Temp1;
 	const sel2 = req.body.Temp2;
