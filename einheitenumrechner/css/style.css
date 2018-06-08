@@ -181,6 +181,12 @@ form {
 	background-size: 480px 319px;
 }
 
+.gradFahrenheit {
+	text-align: right;
+	margin-top: -1%;
+	
+}
+
 
 
 
